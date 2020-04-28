@@ -1,54 +1,72 @@
-{% if page.nocomments %}
-{% else %}
-{% if site.disqus_shortname %}
-<div class="post-comments">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      var disqus_shortname = '{{ site.disqus_shortname }}'; // required: replace example with your forum shortname
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+{% if site.disqus %}
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script');
+        /*写入自己的disqus信息*/
+        s.src = '{{ site.disqus_url }}';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
       })();
-  </script>
-</div>
+
+    </script>
+
 {% endif %}
-{% if site.duoshuo_shortname %}
-<div class="post-comments">
-<!-- 多说分享代码 start -->
-    <div class="ds-share" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-images="https://avatars0.githubusercontent.com/u/17525377?v=3&s=460" data-content="——Clark Zhao的博客" data-url="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <div class="ds-share-inline">
-      <ul  class="ds-share-icons-16">
-        
-        <li>分享到：</li>
-        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a> </li>
-        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-        
-      </ul>
-      <div class="ds-share-icons-more">
-      </div>
-    </div>
- </div>
-    <!-- 多说分享代码 end -->
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"></div>
-    <!-- 多说评论框 end -->
-    
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+{% if site.livere %}
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="{{ site.livere_uid }}"></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:"{{ site.duoshuo_shortname }}"};
-      (function() {
-      	var ds = document.createElement('script');
-      	ds.type = 'text/javascript';ds.async = true;
-      	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      	ds.charset = 'UTF-8';
-      	(document.getElementsByTagName('head')[0] 
-      	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-</div>
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
 {% endif %}
+
+{% if site.Gitment %}
+<section class="post-footer-item comment">
+  <div id="container"></div>
+</section>
+
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '{{ page.id }}', // 可选。默认为 location.href
+  owner: '{{ site.Gitment_owner }}',
+  repo: '{{ site.Gitment_repo }}',
+  oauth: {
+    client_id: '{{ site.client_id }}',
+    client_secret: '{{ site.client_secret }}',
+  },
+})
+gitment.render('container')
+</script>
 {% endif %}
