@@ -1,35 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-01T22:37:30+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/2018/05/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-05-17T14:05:21+08:00</published><updated>2018-05-17T14:05:21+08:00</updated><id>http://localhost:4000/2018/05/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/05/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-04T23:38:44+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;D:\Github\EL-z10.github.io&amp;gt;jekyll -v
+Traceback (most recent call last):
+        10: from C:/Ruby26-x64/bin/jekyll:23:in `&amp;lt;main&amp;gt;'
+         9: from C:/Ruby26-x64/bin/jekyll:23:in `load'
+         8: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/jekyll-4.0.0/exe/jekyll:11:in `&amp;lt;top (required)&amp;gt;'
+         7: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/jekyll-4.0.0/lib/jekyll/plugin_manager.rb:52:in `require_from_bundler'
+         6: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler.rb:107:in `setup'
+         5: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:26:in `setup'
+         4: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:26:in `map'
+         3: from C:/Ruby26-x64/lib/ruby/2.6.0/forwardable.rb:230:in `each'
+         2: from C:/Ruby26-x64/lib/ruby/2.6.0/forwardable.rb:230:in `each'
+         1: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:31:in `block in setup'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313:in `check_for_activated_spec!': You have already activated i18n 1.8.2, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;处理：&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>true</name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Hello Jekyll</title><link href="http://localhost:4000/2017/04/18/hello-jekyll.html" rel="alternate" type="text/html" title="Hello Jekyll" /><published>2017-04-18T00:00:00+08:00</published><updated>2017-04-18T00:00:00+08:00</updated><id>http://localhost:4000/2017/04/18/hello-jekyll</id><content type="html" xml:base="http://localhost:4000/2017/04/18/hello-jekyll.html">&lt;blockquote&gt;
-  &lt;p&gt;Transform your plain text into static websites and blogs.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;D:\Github\EL-z10.github.io\assets\post\0501\Snipaste_2020-04-30_12-05-52.png&quot; alt=&quot;Snipaste_2020-04-30_12-05-52&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;welcome&quot;&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;来自https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/p&gt;
 
-&lt;h2 id=&quot;welcome-1&quot;&gt;Welcome&lt;/h2&gt;
+&lt;p&gt;仅需在jekyll前键入bundle exec即可&lt;/p&gt;
 
-&lt;h3 id=&quot;welcome-2&quot;&gt;Welcome&lt;/h3&gt;
+&lt;h2 id=&quot;bundlergemnotfound&quot;&gt;(Bundler::GemNotFound)&lt;/h2&gt;
 
-&lt;p&gt;This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;D:\Github\EL-z10.github.io\assets\post\0501\Snipaste_2020-05-04_21-39-33.png&quot; alt=&quot;Snipaste_2020-05-04_21-39-33&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;so-what-is-jekyll-exactlypermalink&quot;&gt;So what is Jekyll, exactly?Permalink&lt;/h3&gt;
+&lt;p&gt;输入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;即可，不行的话再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;) and our &lt;a href=&quot;https://github.com/Shopify/liquid/wiki&quot;&gt;Liquid&lt;/a&gt; renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.&lt;/p&gt;
+&lt;h2 id=&quot;一些tips&quot;&gt;一些tips&lt;/h2&gt;
 
-&lt;h3 id=&quot;helpful-hintspermalink&quot;&gt;Helpful HintsPermalink&lt;/h3&gt;
-
-&lt;p&gt;Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.&lt;/p&gt;
-
-&lt;h3 id=&quot;video-test&quot;&gt;Video Test&lt;/h3&gt;
-
-&lt;iframe type=&quot;text/html&quot; width=&quot;100%&quot; height=&quot;385&quot; src=&quot;http://www.youtube.com/embed/gfmjMWjn-Xg&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</content><author><name>Jekyll</name></author><category term="jekyll" /><summary type="html">Transform your plain text into static websites and blogs.</summary></entry></feed>
+&lt;p&gt;1.git bash中复制是ctrl+ins, 粘贴是shift+ins&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
