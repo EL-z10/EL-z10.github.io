@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-08T20:45:19+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-08T20:57:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
 
 &lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;
 
@@ -19,7 +19,7 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;p&gt;处理：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/Snipaste_2020-04-30_12-05-52.png&quot; alt=&quot;Snipaste_2020-04-30_12-05-52&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/01.png&quot; alt=&quot;Snipaste_2020-04-30_12-05-52&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;来自https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/p&gt;
 
@@ -27,7 +27,7 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;h2 id=&quot;bundlergemnotfound&quot;&gt;(Bundler::GemNotFound)&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/Snipaste_2020-05-04_21-39-33.png&quot; alt=&quot;Snipaste_2020-05-04_21-39-33&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/02.png&quot; alt=&quot;Snipaste_2020-05-04_21-39-33&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;输入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;即可，不行的话再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
 
