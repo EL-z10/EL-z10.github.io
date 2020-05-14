@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-08T20:57:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T02:31:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">your awesome title</title><subtitle>your web description</subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
+
+&lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
+
+&lt;h2 id=&quot;目的及原理&quot;&gt;目的及原理&lt;/h2&gt;
+
+&lt;p&gt;目的：压缩或保护（就是反逆向）&lt;/p&gt;
+
+&lt;p&gt;​	壳可以看做一段加密程序，即在原PE文件（后面称之为宿主文件）上加一个新的区段（也就是壳），然后从这个新的区段上开始运行。加壳后，原始程序代码在磁盘文件中以加密后的形式存在，只在执行时在内存中还原。防止程序被静态反编译和非法修改。如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/YDXbi6&quot;&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXbi6.png&quot; alt=&quot;YDXbi6.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​	有名的压缩壳有UPX,ASPack，加密壳有ASProtect,Armadillo,EXECryptor,Themidia…&lt;/p&gt;
+
+&lt;p&gt;​	这些大多有现成的脱壳机或者直接用kali解决，若碰到自编壳（如不用系统提供的GetProcAdress函数而是自编一个），只能手动脱壳。&lt;/p&gt;
+
+&lt;h2 id=&quot;常用词&quot;&gt;常用词&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OEP&lt;/code&gt;：程序的入口点（手动脱壳的重点！！）&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IAT&lt;/code&gt;：导入地址表&lt;/p&gt;
+
+&lt;p&gt;由于导入函数就是被程序调用但其执行代码又不在程序中的函数，这些函数的代码位于一个或者多个DLL 中.当PE 文件被装入内存的时候，Windows 装载器才将DLL 装入，并将调用导入函数的指令和函数实际所处的地址联系起来(动态连接)，这操作就需要导入表完成.其中导入地址表就指示函数实际地址。壳可能会对指针进行处理，修复输入表就是修复IAT&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;段首和段尾&lt;/code&gt;：段首,是上一段的结尾也是下一段的开头一段是以retn开始和retn结尾。我们经常听到在段首下断，所以我们要找的就是retn下面第一个push ,段首是以push开始滴，所以我们不会在retn那里下段而段尾我们是在retn处下断，因为软件的子程序是以retn返回到某一地方所以返回的时候要在retn出下断&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dump&lt;/code&gt;:脱壳过程中的一个关键步骤，部分加密外壳会采取Aanti-Dump来防止被脱壳，得绕过&lt;/p&gt;
+
+&lt;h2 id=&quot;esp定律&quot;&gt;ESP定律&lt;/h2&gt;
+
+&lt;p&gt;ESP定律的原理就是“堆栈平衡”原理。&lt;/p&gt;
+
+&lt;p&gt;1、在命令行下断hresp-4（此时的ESP就是OD载入后当前显示的值）&lt;/p&gt;
+
+&lt;p&gt;2、hrESP(关键标志下一行代码所指示的ESP值(单步通过))&lt;/p&gt;
+
+&lt;p&gt;CALL&lt;/p&gt;
+
+&lt;p&gt;1.向堆栈中压入下一行程序的地址；&lt;/p&gt;
+
+&lt;p&gt;2.JMP到call的子程序地址处。&lt;/p&gt;
+
+&lt;p&gt;RETN&lt;/p&gt;
+
+&lt;p&gt;与call对应的就是RETN了。对于RETN我们可以这样来理解：&lt;/p&gt;
+
+&lt;p&gt;1.将当前的ESP中指向的地址出栈；&lt;/p&gt;
+
+&lt;p&gt;2.JMP到这个地址。&lt;/p&gt;
+
+&lt;h1 id=&quot;查壳&quot;&gt;查壳&lt;/h1&gt;
+
+&lt;p&gt;理论上可以hex查然鹅我还不知道（匿）&lt;/p&gt;
+
+&lt;p&gt;最简单快捷的就是用软件啦，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;exeinfope&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDX7Ix.png&quot; alt=&quot;YDX7Ix.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;像这个就是UPX壳&lt;/p&gt;
+
+&lt;h1 id=&quot;具体脱壳办法&quot;&gt;具体脱壳办法&lt;/h1&gt;
+
+&lt;h2 id=&quot;脱壳机&quot;&gt;脱壳机&lt;/h2&gt;
+
+&lt;h2 id=&quot;kali&quot;&gt;kali&lt;/h2&gt;
+
+&lt;h2 id=&quot;手动脱壳&quot;&gt;手动脱壳&lt;/h2&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法</summary></entry><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
 
 &lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;
 
@@ -19,7 +85,7 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;p&gt;处理：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/01.png&quot; alt=&quot;Snipaste_2020-04-30_12-05-52&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXNPf.png&quot; alt=&quot;YDXNPf.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;来自https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/p&gt;
 
@@ -27,10 +93,12 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;h2 id=&quot;bundlergemnotfound&quot;&gt;(Bundler::GemNotFound)&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;2020-05-01-jekyll.assets/02.png&quot; alt=&quot;Snipaste_2020-05-04_21-39-33&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXYIP.png&quot; alt=&quot;YDXYIP.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;输入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;即可，不行的话再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;一些tips&quot;&gt;一些tips&lt;/h2&gt;
 
-&lt;p&gt;1.git bash中复制是ctrl+ins, 粘贴是shift+ins&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
+&lt;p&gt;1.git bash中复制是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+ins&lt;/code&gt;, 粘贴是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+shift&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;2.jekyll serve 状态中本地网站无法跟踪_config.yml的变化（技术原因），若更改 _config.yml需先ctrl+c退出，y确定，再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
