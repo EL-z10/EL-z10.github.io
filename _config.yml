@@ -1,7 +1,7 @@
 # Site settings 配置站点
 title: 'your awesome title'
 description: 'your web description'
-keywords: 'your web keywords, another keywords'
+keywords: 'ctf, reverse'
 url: 'https://abc.github.io' # your host
 
 # nav 中文字符空格：&emsp;
@@ -24,21 +24,10 @@ portraits: '/assets/profile.jpeg' # your portraits image file path
 
 # SNS
 SNS: true
-SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
-  mail: 'mailto:eloise123tony@gmail.com'
-  weixin: 'https://s1.ax1x.com/2020/05/15/YDjmes.jpg' # 你的微信二维码存放的地址
-  qq: 'https://s1.ax1x.com/2020/05/15/YDjVyQ.jpg' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
-  github: ''
-  Codepen: ''
-  weibo: ''
-  instagram: ''
-  Twitter: ''
-  Dribbble: ''
-  Facebook: ''
-  Google: ''
-  zhihu: ''
-  juejin: ''
-  twitch: ''
+SNS-icon: #['Facebook','weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:elosie123tony@gmail.com'
+  weixin: 'https://s1.ax1x.com/2020/05/15/YDjmes.jpg' # 你的微信二维码存放的地址 
+  qq: 'https://s1.ax1x.com/2020/05/15/YDjVyQ.jpg' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes 
 
 # 分页
 paginate: 2
