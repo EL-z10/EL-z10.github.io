@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:41:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T23:45:12+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法（一）</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法（一）" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编到我们需要的东东，第一步就得脱壳。这篇总结下脱壳的一些比较基础的方法。&lt;/p&gt;
 
 &lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
 
@@ -14,57 +14,141 @@
 
 &lt;p&gt;​	这些大多有现成的脱壳机或者直接用kali解决，若碰到自编壳（如不用系统提供的GetProcAdress函数而是自编一个），只能手动脱壳。&lt;/p&gt;
 
-&lt;h2 id=&quot;常用词&quot;&gt;常用词&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OEP&lt;/code&gt;：程序的入口点（手动脱壳的重点！！）&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IAT&lt;/code&gt;：导入地址表&lt;/p&gt;
-
-&lt;p&gt;由于导入函数就是被程序调用但其执行代码又不在程序中的函数，这些函数的代码位于一个或者多个DLL 中.当PE 文件被装入内存的时候，Windows 装载器才将DLL 装入，并将调用导入函数的指令和函数实际所处的地址联系起来(动态连接)，这操作就需要导入表完成.其中导入地址表就指示函数实际地址。壳可能会对指针进行处理，修复输入表就是修复IAT&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;段首和段尾&lt;/code&gt;：段首,是上一段的结尾也是下一段的开头一段是以retn开始和retn结尾。我们经常听到在段首下断，所以我们要找的就是retn下面第一个push ,段首是以push开始滴，所以我们不会在retn那里下段而段尾我们是在retn处下断，因为软件的子程序是以retn返回到某一地方所以返回的时候要在retn出下断&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dump&lt;/code&gt;:脱壳过程中的一个关键步骤，部分加密外壳会采取Aanti-Dump来防止被脱壳，得绕过&lt;/p&gt;
-
-&lt;h2 id=&quot;esp定律&quot;&gt;ESP定律&lt;/h2&gt;
-
-&lt;p&gt;ESP定律的原理就是“堆栈平衡”原理。&lt;/p&gt;
-
-&lt;p&gt;1、在命令行下断hresp-4（此时的ESP就是OD载入后当前显示的值）&lt;/p&gt;
-
-&lt;p&gt;2、hrESP(关键标志下一行代码所指示的ESP值(单步通过))&lt;/p&gt;
-
-&lt;p&gt;CALL&lt;/p&gt;
-
-&lt;p&gt;1.向堆栈中压入下一行程序的地址；&lt;/p&gt;
-
-&lt;p&gt;2.JMP到call的子程序地址处。&lt;/p&gt;
-
-&lt;p&gt;RETN&lt;/p&gt;
-
-&lt;p&gt;与call对应的就是RETN了。对于RETN我们可以这样来理解：&lt;/p&gt;
-
-&lt;p&gt;1.将当前的ESP中指向的地址出栈；&lt;/p&gt;
-
-&lt;p&gt;2.JMP到这个地址。&lt;/p&gt;
-
 &lt;h1 id=&quot;查壳&quot;&gt;查壳&lt;/h1&gt;
 
-&lt;p&gt;理论上可以hex查然鹅我还不知道（匿）&lt;/p&gt;
-
-&lt;p&gt;最简单快捷的就是用软件啦，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;exeinfope&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;最简单快捷的就是用软件啦，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;exeinfope&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;PEID&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDX7Ix.png&quot; alt=&quot;YDX7Ix.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;像这个就是UPX壳&lt;/p&gt;
 
-&lt;h1 id=&quot;具体脱壳办法&quot;&gt;具体脱壳办法&lt;/h1&gt;
+&lt;h1 id=&quot;基础的脱壳办法&quot;&gt;基础的脱壳办法&lt;/h1&gt;
 
-&lt;h2 id=&quot;脱壳机&quot;&gt;脱壳机&lt;/h2&gt;
+&lt;h2 id=&quot;找oep&quot;&gt;找OEP&lt;/h2&gt;
 
-&lt;h2 id=&quot;kali&quot;&gt;kali&lt;/h2&gt;
+&lt;p&gt;​	当外壳所保护的程序运行时，会先执行外壳程序，外壳程序负责在内存中把原程序解压、还原， 并把控制权还给解压后的真正程序，再跳到原来的程序入口点。一般的壳在这里会有一条明显的“分 界线”，这个&lt;u&gt;解压后真正的程序入口点称为“OEP”&lt;/u&gt; （ Original Entry Point,原程序入口点)&lt;/p&gt;
 
-&lt;h2 id=&quot;手动脱壳&quot;&gt;手动脱壳&lt;/h2&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法</summary></entry><entry><title type="html">博客一些功能实现</title><link href="http://localhost:4000/2020/05/13/some-question-in-blog.html" rel="alternate" type="text/html" title="博客一些功能实现" /><published>2020-05-13T00:00:00+08:00</published><updated>2020-05-13T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/13/some%20question%20in%20blog</id><content type="html" xml:base="http://localhost:4000/2020/05/13/some-question-in-blog.html">&lt;h2 id=&quot;md插入图片问题&quot;&gt;md插入图片问题&lt;/h2&gt;
+&lt;p&gt;​	加壳后，原程序中多了一个区块.pediy。这个区块就是外壳，相当于一个文件加载器（Loader ）。当RebPE运行时，各区块被Windows操作系统映射到内存中，现在的入口点地址是13000h,指向 外壳。当外壳拿到控制权后，会通过各种方式获得自己所需要的API地址，解密原程序各区块的数 据，填充IAT（导入地址表）。做完这些工作后，就准备跳到OEP处（即401130h）执行，如图：&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyZe0I.png&quot; alt=&quot;YyZe0I.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	这也告诉我们：OEP总是与大跳如影随形（JMP,JZ）&lt;/p&gt;
+
+&lt;p&gt;​	upx壳较为常见，一般使用cmd就很容易地可以脱掉&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UPX -d 文件名
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​	在upx基础上，一些保护工具如UPXPR可以使以上命令行失效，这个时候就要用手动脱壳了（方法与ASPack类似）。以下就以加了UPXPR为例的记事本进行练习。附件在文末。&lt;/p&gt;
+
+&lt;p&gt;先查壳&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YywFX9.png&quot; alt=&quot;YywFX9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	在很多基础的题目中，找OEP+Dump是一个脱壳通法，Dump可以用od直接搞定，故找OEP是重点。&lt;/p&gt;
+
+&lt;p&gt;​	以下是几个找ESP常用方法。&lt;/p&gt;
+
+&lt;h3 id=&quot;esp定律&quot;&gt;ESP定律&lt;/h3&gt;
+
+&lt;h4 id=&quot;原理堆栈平衡&quot;&gt;原理：堆栈平衡&lt;/h4&gt;
+
+&lt;p&gt;​	在编写加壳软件时，必须保证外壳初始化的现场环境（各寄存器值）与原程序的现场环境是相同的。通常用pushad/popad、pushfd/popfd来保存和恢复现场环境。&lt;strong&gt;&lt;u&gt;即OEP的寄存器值等于入口（PUSHAD）的寄存器值&lt;/u&gt;&lt;/strong&gt;，可利用硬件断点。&lt;/p&gt;
+
+&lt;p&gt;​	思路：将最开始esp压栈地址的值下断点，找到下一个使个寄存器值与之全部相等的语句位置。&lt;/p&gt;
+
+&lt;p&gt;​	注意，经验表明本方法可用范围：在pushad一次F8后，fpu里头的寄存器只有ESP是红的（EIP除外）&lt;/p&gt;
+
+&lt;p&gt;​	另：PUSHAD相当于push eax/ecx/eddx/ebx/esp/esi/edi  (除EIP全压栈)&lt;/p&gt;
+
+&lt;h4 id=&quot;操作&quot;&gt;操作&lt;/h4&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyGaUe.png&quot; alt=&quot;YyGaUe.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;单步后只有ESP变了，可以用。&lt;/p&gt;
+
+&lt;p&gt;1.右键ESP,跟随Dump&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyJ2sx.png&quot; alt=&quot;YyJ2sx.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.选择弹出来的Hex Dump若干字符（多少无所谓），右键设置硬件byte断点（也不一定要byte)。这段就是一开始分析的入口和OEP一样的东东&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YytEjI.png&quot; alt=&quot;YytEjI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以通过Debug-hardware breakpoints 检查设置得咋样&lt;/p&gt;
+
+&lt;p&gt;3.&lt;code class=&quot;highlighter-rouge&quot;&gt;shift+F9&lt;/code&gt;运行看到popad和大跳&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YytJuq.png&quot; alt=&quot;YytJuq.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.F8单步，果然~（一般OEP很容易是PUSH,段首嘛）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyNQZ6.png&quot; alt=&quot;YyNQZ6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;5.dump脱壳，就是把起始地址从0040E941换成004010CC&lt;del&gt;（史前大跳）&lt;/del&gt;详见后文&lt;a href=&quot;#jump&quot;&gt;Dump操作&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;单步步进法&quot;&gt;单步步进法&lt;/h3&gt;
+
+&lt;p&gt;效率较低但是最踏实。&lt;/p&gt;
+
+&lt;p&gt;OD传统艺能，经典动态调试，总之就是&lt;strong&gt;只下不上&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;技巧：&lt;/p&gt;
+
+&lt;p&gt;1.近CALL-F7,远CALL-F8,保证向下&lt;/p&gt;
+
+&lt;p&gt;2.要是要回跳在下一句F4&lt;/p&gt;
+
+&lt;p&gt;3.关注大跳（JMP,JE,RETN)，很快就OEP&lt;/p&gt;
+
+&lt;p&gt;因为和内存镜像法后半程一样，这里先按下&lt;/p&gt;
+
+&lt;h3 id=&quot;内存镜像法&quot;&gt;内存镜像法&lt;/h3&gt;
+
+&lt;p&gt;这个也叫两次断点法，熟能生巧吧QAQ&lt;/p&gt;
+
+&lt;p&gt;1.&lt;/p&gt;
+
+&lt;h2 id=&quot;dump&quot;&gt;Dump&lt;/h2&gt;
+
+&lt;h3 id=&quot;利用od&quot;&gt;利用OD&lt;/h3&gt;
+
+&lt;p&gt;优点：简便。&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&quot;jump&quot;&gt;缺点：不是所有都能Dump,比如对DLL映像&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;在OEP语句右键-用OllydbgDump脱壳调试进程-脱壳（记得勾重建输入表-over&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YydcSe.png&quot; alt=&quot;YydcSe.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;查壳，无壳状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/Yywi6J.png&quot; alt=&quot;Yywi6J.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;一些tips&quot;&gt;一些tips&lt;/h1&gt;
+
+&lt;h2 id=&quot;od&quot;&gt;OD&lt;/h2&gt;
+
+&lt;h3 id=&quot;快捷键&quot;&gt;快捷键&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+F2&lt;/code&gt;重载&lt;/p&gt;
+
+&lt;p&gt;遇到CALL,LOOP这些，F8路过，F7跟进&lt;/p&gt;
+
+&lt;p&gt;alt+M打开内存镜像&lt;/p&gt;
+
+&lt;h2 id=&quot;md&quot;&gt;md&lt;/h2&gt;
+
+&lt;h3 id=&quot;页内跳转&quot;&gt;页内跳转&lt;/h3&gt;
+
+&lt;p&gt;定义一个锚(id)：&lt;span id=&quot;jump&quot;&gt;跳转到的地方&lt;/span&gt;
+使用markdown语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;[点击跳转](#jump)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;快捷键-1&quot;&gt;快捷键&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;ctrl+B&lt;/strong&gt;加粗&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ctrl+I&lt;/em&gt;斜体&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Ctrl+U&lt;/u&gt;下划线&lt;/p&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编到我们需要的东东，第一步就得脱壳。这篇总结下脱壳的一些比较基础的方法。</summary></entry><entry><title type="html">博客一些功能实现</title><link href="http://localhost:4000/2020/05/13/some-question-in-blog.html" rel="alternate" type="text/html" title="博客一些功能实现" /><published>2020-05-13T00:00:00+08:00</published><updated>2020-05-13T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/13/some%20question%20in%20blog</id><content type="html" xml:base="http://localhost:4000/2020/05/13/some-question-in-blog.html">&lt;h2 id=&quot;md插入图片问题&quot;&gt;md插入图片问题&lt;/h2&gt;
 
 &lt;p&gt;先码个md&lt;a href=&quot;https://www.jianshu.com/p/280c6a6f2594&quot;&gt;加图语法&lt;/a&gt;&lt;/p&gt;
 
