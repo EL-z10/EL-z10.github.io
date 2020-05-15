@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T04:31:00+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:05:22+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
 
 &lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
 
@@ -64,7 +64,47 @@
 
 &lt;h2 id=&quot;kali&quot;&gt;kali&lt;/h2&gt;
 
-&lt;h2 id=&quot;手动脱壳&quot;&gt;手动脱壳&lt;/h2&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法</summary></entry><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
+&lt;h2 id=&quot;手动脱壳&quot;&gt;手动脱壳&lt;/h2&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法</summary></entry><entry><title type="html">博客一些功能实现</title><link href="http://localhost:4000/2020/05/13/some-question-in-blog.html" rel="alternate" type="text/html" title="博客一些功能实现" /><published>2020-05-13T00:00:00+08:00</published><updated>2020-05-13T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/13/some%20question%20in%20blog</id><content type="html" xml:base="http://localhost:4000/2020/05/13/some-question-in-blog.html">&lt;h2 id=&quot;md插入图片问题&quot;&gt;md插入图片问题&lt;/h2&gt;
+
+&lt;p&gt;先码个md&lt;a href=&quot;https://www.jianshu.com/p/280c6a6f2594&quot;&gt;加图语法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;一开始想用相对路径，方法如下&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/tian_ci/article/details/82909919&quot;&gt;https://blog.csdn.net/tian_ci/article/details/82909919&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/YrNKMt&quot;&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YrNKMt.png&quot; alt=&quot;YrNKMt.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;此时md文件中可以正常显示图片，但是push到网上还是显示不出来。&lt;/p&gt;
+
+&lt;p&gt;经查，jekyll不会复制_post文件里的资产，得放在根目录下一个&lt;code class=&quot;highlighter-rouge&quot;&gt;不是以下划线开头&lt;/code&gt;的文件夹里头。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YrNLQI.png&quot; alt=&quot;YrNLQI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;遂把图片丢到/assets/images里面，md文件显示失败&lt;/p&gt;
+
+&lt;p&gt;考虑可能是相对路径没用对？&lt;/p&gt;
+
+&lt;p&gt;搜一下相对路径用法：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./assets/&lt;/code&gt;这样写表示，当前目录中的assets文件夹
+&lt;code class=&quot;highlighter-rouge&quot;&gt;../assets/&lt;/code&gt;这样写表示，当前目录的上一层目录中的assets文件夹
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/assets/&lt;/code&gt;这样写表示，项目根目录（可以指磁盘根目录，也可以指项目根目录，据实际情况而定）&lt;/p&gt;
+
+&lt;p&gt;遂把图片丢到../assets/images里面，md文件显示失败（？）&lt;/p&gt;
+
+&lt;p&gt;再来把图片丢到../assets里面，md文件显示成功&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/Yr0faV.png&quot; alt=&quot;Yr0faV.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然而push上去还是显示不了。。。&lt;del&gt;心态崩了&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/test1.png&quot; alt=&quot;test1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;换方法用图床。七猫云好麻烦QAQ，于是用的&lt;a href=&quot;https://imgchr.com/&quot;&gt;路过图床&lt;/a&gt;，免费方便，图传上去复制图片链接即可。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![图片名字]（图片链接）
+![Yr0faV.png](https://s1.ax1x.com/2020/05/15/Yr0faV.png)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">md插入图片问题</summary></entry><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
 
 &lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;
 
@@ -101,4 +141,6 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;p&gt;1.git bash中复制是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+ins&lt;/code&gt;, 粘贴是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+shift&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;2.jekyll serve 状态中本地网站无法跟踪_config.yml的变化（技术原因），若更改 _config.yml需先ctrl+c退出，y确定，再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
+&lt;p&gt;2.jekyll serve 状态中本地网站无法跟踪_config.yml的变化（技术原因），若更改 _config.yml需先ctrl+c退出，y确定，再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/test.png&quot; alt=&quot;test&quot; /&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
