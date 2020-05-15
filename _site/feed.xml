@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:05:22+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:10:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
 
 &lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
 
@@ -98,6 +98,8 @@
 
 &lt;p&gt;然而push上去还是显示不了。。。&lt;del&gt;心态崩了&lt;/del&gt;&lt;/p&gt;
 
+&lt;p&gt;这个亚子：&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;../assets/test1.png&quot; alt=&quot;test1&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;换方法用图床。七猫云好麻烦QAQ，于是用的&lt;a href=&quot;https://imgchr.com/&quot;&gt;路过图床&lt;/a&gt;，免费方便，图传上去复制图片链接即可。&lt;/p&gt;
@@ -127,7 +129,7 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXNPf.png&quot; alt=&quot;YDXNPf.png&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;来自https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/p&gt;
+&lt;p&gt;来自&lt;a href=&quot;https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&quot;&gt;https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;仅需在jekyll前键入bundle exec即可&lt;/p&gt;
 
@@ -143,4 +145,6 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313
 
 &lt;p&gt;2.jekyll serve 状态中本地网站无法跟踪_config.yml的变化（技术原因），若更改 _config.yml需先ctrl+c退出，y确定，再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/test.png&quot; alt=&quot;test&quot; /&gt;&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
+&lt;p&gt;3.md文件名不能有中文，而且格式得是：2020-05-01-a title.md&lt;/p&gt;
+
+&lt;p&gt;中文会404。&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>
