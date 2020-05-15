@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:10:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-15T12:41:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法</title><link href="http://localhost:4000/2020/05/14/ke.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke.html">&lt;p&gt;有很多逆向题不能直接反汇编，第一步就得脱壳，这篇总结下脱壳的一些基本方法&lt;/p&gt;
 
 &lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
 
@@ -102,10 +102,12 @@
 
 &lt;p&gt;&lt;img src=&quot;../assets/test1.png&quot; alt=&quot;test1&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;换方法用图床。七猫云好麻烦QAQ，于是用的&lt;a href=&quot;https://imgchr.com/&quot;&gt;路过图床&lt;/a&gt;，免费方便，图传上去复制图片链接即可。&lt;/p&gt;
+&lt;p&gt;换方法用图床。七猫云好麻烦QAQ，我自己用的&lt;a href=&quot;https://imgchr.com/&quot;&gt;路过图床&lt;/a&gt;，图传上去复制图片链接即可。（GitHub上建库也可）&lt;/p&gt;
+
+&lt;p&gt;格式：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![图片名字]（图片链接）
-![Yr0faV.png](https://s1.ax1x.com/2020/05/15/Yr0faV.png)
+![picture.png](https:/abc.com/123.png)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">md插入图片问题</summary></entry><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
 
 &lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;

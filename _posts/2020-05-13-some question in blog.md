@@ -50,10 +50,12 @@ subtitle: '插图，下载链接'
 
 ![test1](../assets/test1.png)
 
-换方法用图床。七猫云好麻烦QAQ，于是用的[路过图床](https://imgchr.com/)，免费方便，图传上去复制图片链接即可。
+换方法用图床。七猫云好麻烦QAQ，我自己用的[路过图床](https://imgchr.com/)，图传上去复制图片链接即可。（GitHub上建库也可）
+
+格式：
 
 ```
 ![图片名字]（图片链接）
-![Yr0faV.png](https://s1.ax1x.com/2020/05/15/Yr0faV.png)
+![picture.png](https:/abc.com/123.png)
 ```
 
