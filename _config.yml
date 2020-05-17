@@ -30,7 +30,7 @@ SNS-icon: #['Facebook','weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagra
   qq: 'https://s1.ax1x.com/2020/05/15/YDjVyQ.jpg' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes 
 
 # 分页
-paginate: 2
+paginate: 8
 paginatepath: ['page:num']
 
 # since
