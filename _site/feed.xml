@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-17T16:05:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">welcome to my blog</title><subtitle></subtitle><author><name>true</name></author><entry><title type="html">壳及脱壳的一些基本办法（二）</title><link href="http://localhost:4000/2020/05/17/ke2.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法（二）" /><published>2020-05-17T11:18:21+08:00</published><updated>2020-05-17T11:18:21+08:00</updated><id>http://localhost:4000/2020/05/17/ke2</id><content type="html" xml:base="http://localhost:4000/2020/05/17/ke2.html">&lt;p&gt;上一篇的一些技巧在加密壳面前大概率得扑QAQ &lt;del&gt;跟个这篇就不会扑了样的&lt;/del&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;anti-dump的绕过&quot;&gt;Anti-Dump的绕过&lt;/h1&gt;
+
+&lt;h2 id=&quot;纠正sizeofimage&quot;&gt;纠正SizeOfImage&lt;/h2&gt;
+
+&lt;p&gt;​	有些程序dump出来后完全废了比如这个亚子&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y2ljHK.png&quot; alt=&quot;Y2ljHK.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	在Dump文件时，一些关键参数是通过MODULEENTRY32结构的快照获得的，因此，可以在 modBaseSize和modBaseAddr字段中填入错误的值，让Dump软件无法正确读取进程中的数据。经测 试发现，如果修改系统中modBaseAddr的值，会使系统出现问题，所以只能修改modBaseSize的值。&lt;/p&gt;
+
+&lt;p&gt;​	如此，使得使用MODULEENTRY32函数得到的进程映像大小改变，让Dump软件得到无用的文件。&lt;/p&gt;
+
+&lt;p&gt;​	解决方法：利用LordPE内置的‘correct ImageSize’解决。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/Y2tHI0&quot;&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y2tHI0.png&quot; alt=&quot;Y2tHI0.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​	找到进程-右键-correct Image&lt;/p&gt;
+
+&lt;h2 id=&quot;修改内存属性&quot;&gt;修改内存属性&lt;/h2&gt;
+
+&lt;p&gt;​	有些软件使用VirtualProtect函数将PE文件头设为不可读。运行 后，用LordPE进行Dump操作会报错（Couldn’t grab process memory.)&lt;/p&gt;
+
+&lt;p&gt;​	解决方法：用OD在PE头设置为完整权限。&lt;/p&gt;
+
+&lt;p&gt;​	OD载入-alt+m打开内存镜像-找到PE头&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y21zq0.png&quot; alt=&quot;Y21zq0.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	右键-&lt;code class=&quot;highlighter-rouge&quot;&gt;set access&lt;/code&gt;-&lt;code class=&quot;highlighter-rouge&quot;&gt;full accesss&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y23lJe.png&quot; alt=&quot;Y23lJe.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	绿了就OK&lt;/p&gt;
+
+&lt;h1 id=&quot;重建输入表&quot;&gt;重建输入表&lt;/h1&gt;
+
+&lt;h2 id=&quot;原理&quot;&gt;原理&lt;/h2&gt;
+
+&lt;p&gt;​	加密外壳绝大部分会破坏原程序的输入表，因此脱壳过程中重建输入表很重要。&lt;/p&gt;
+
+&lt;p&gt;​	本来程序的PE 文件运行时将初始化输入表，初始化完后整个输入表结构是这个样子的：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y23Dzj.png&quot; alt=&quot;Y23Dzj.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	初始化完后，IAT结构用于保存API的实际地址，所以其他结构不再重要，于是加壳时候把除了IAT之外的全部删掉，重建输入表就是根据IAT来还原整个输入表。&lt;/p&gt;
+
+&lt;h2 id=&quot;步骤&quot;&gt;步骤&lt;/h2&gt;
+
+&lt;p&gt;有的时候，Dump出来的时候不能正常运行，是因为还有一个输入表没有进行处理，一些加密壳会在IAT加密上面大做文章，用HOOK - API的外壳地址来代替真是的IAT的地址，让脱壳者无法正确的还原程序的原始IAT，使得程序不能被破解，所以我们处理这些被加密IAT的地址的办法是找到加密这些IAT的地址的跳转（就是Magic Jump），将它修改为强制跳转（JMP），使之无法加密IAT，从而达到脱壳修复的目的。&lt;/p&gt;
+
+&lt;h3 id=&quot;先找iat&quot;&gt;先找IAT&lt;/h3&gt;
+
+&lt;p&gt;一般程序的IAT是连续排列的，以一个DWORD字的0 作为结束，因此，只要确定IAT的一个点，就能获得整个IAT的地址和大小。&lt;/p&gt;
+
+&lt;p&gt;​	程序中的每一个API函数在IAT里都有自己的位置，这样，无论在代码中调用一个输入函数多 少次，都会通过IAT中的同一个函数指针来完成。要确定IAT的地址，就要先看看程序是怎样调用 输入函数的。一种情况是像下面这样，直接调用[405028]中的函数，地址405028h位于IAT中，指 向 GetVersion 函数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;00401156 FF15 28504000 call dword ptr [405028];kernel32.GetVersion
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​	另一种API调用像下面这样，通过call指令把控制权转交给一个子程序，由子程序中的jmp指令跳转到IAT中的0050D330h处。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;0040109D E8 F4DF0A00 call 004AF096
+
+004AF096 FF25 48D35000 jmp dword ptr [50D330];kernel32.GetProcessHeap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​	一般利用OD找IAT. 找到以上句式-右键follow in dump-memory address-翻数据窗口&lt;/p&gt;
+
+&lt;p&gt;-IAT起始地址00结束，IAT末端数据00 00 00 00.&lt;/p&gt;
+
+&lt;p&gt;​	记录起止地址。&lt;/p&gt;
+
+&lt;h3 id=&quot;再利用importrec修复&quot;&gt;再利用ImportREC修复&lt;/h3&gt;
+
+&lt;p&gt;​	利用ImportREC输入程序的OEP和刚刚得到RVA和大小，点击获取输入信息，修复转存，抓取DUMP的程序，进行修复。&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y2yb2n.png&quot; alt=&quot;Y2yb2n.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	注意：目标文件已被Dump，且另存为另一个文件，而且目标文件在运行。&lt;/p&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">上一篇的一些技巧在加密壳面前大概率得扑QAQ 跟个这篇就不会扑了样的</summary></entry><entry><title type="html">壳及脱壳的一些基本办法（一）</title><link href="http://localhost:4000/2020/05/14/ke1.html" rel="alternate" type="text/html" title="壳及脱壳的一些基本办法（一）" /><published>2020-05-14T21:18:21+08:00</published><updated>2020-05-14T21:18:21+08:00</updated><id>http://localhost:4000/2020/05/14/ke1</id><content type="html" xml:base="http://localhost:4000/2020/05/14/ke1.html">&lt;p&gt;有很多逆向题不能直接反汇编到我们需要的东东，第一步就得脱壳。这篇总结下脱壳的一些比较基础的方法。&lt;/p&gt;
+
+&lt;h1 id=&quot;什么是壳&quot;&gt;什么是壳&lt;/h1&gt;
+
+&lt;h2 id=&quot;目的及原理&quot;&gt;目的及原理&lt;/h2&gt;
+
+&lt;p&gt;目的：压缩或保护（就是反逆向）&lt;/p&gt;
+
+&lt;p&gt;​	壳可以看做一段加密程序，即在原PE文件（后面称之为宿主文件）上加一个新的区段（也就是壳），然后从这个新的区段上开始运行。加壳后，原始程序代码在磁盘文件中以加密后的形式存在，只在执行时在内存中还原。防止程序被静态反编译和非法修改。如下图：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/YDXbi6&quot;&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXbi6.png&quot; alt=&quot;YDXbi6.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​	有名的压缩壳有UPX,ASPack，加密壳有ASProtect,Armadillo,EXECryptor,Themidia…&lt;/p&gt;
+
+&lt;p&gt;​	这些大多有现成的脱壳机或者直接用kali解决，若碰到自编壳（如不用系统提供的GetProcAdress函数而是自编一个），只能手动脱壳。&lt;/p&gt;
+
+&lt;h1 id=&quot;查壳&quot;&gt;查壳&lt;/h1&gt;
+
+&lt;p&gt;最简单快捷的就是用软件啦，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;exeinfope&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;PEID&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDX7Ix.png&quot; alt=&quot;YDX7Ix.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;像这个就是UPX壳&lt;/p&gt;
+
+&lt;h1 id=&quot;基础的脱壳办法&quot;&gt;基础的脱壳办法&lt;/h1&gt;
+
+&lt;h2 id=&quot;找oep&quot;&gt;找OEP&lt;/h2&gt;
+
+&lt;p&gt;​	当外壳所保护的程序运行时，会先执行外壳程序，外壳程序负责在内存中把原程序解压、还原， 并把控制权还给解压后的真正程序，再跳到原来的程序入口点。一般的壳在这里会有一条明显的“分 界线”，这个&lt;u&gt;解压后真正的程序入口点称为“OEP”&lt;/u&gt; （ Original Entry Point,原程序入口点)&lt;/p&gt;
+
+&lt;p&gt;​	加壳后，原程序中多了一个区块.pediy。这个区块就是外壳，相当于一个文件加载器（Loader ）。当RebPE运行时，各区块被Windows操作系统映射到内存中，现在的入口点地址是13000h,指向 外壳。当外壳拿到控制权后，会通过各种方式获得自己所需要的API地址，解密原程序各区块的数 据，填充IAT（导入地址表）。做完这些工作后，就准备跳到OEP处（即401130h）执行，如图：&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyZe0I.png&quot; alt=&quot;YyZe0I.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	这也告诉我们：OEP总是与大跳如影随形（JMP,JZ）&lt;/p&gt;
+
+&lt;p&gt;​	upx壳较为常见，一般使用cmd就很容易地可以脱掉&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UPX -d 文件名
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;​	在upx基础上，一些保护工具如UPXPR可以使以上命令行失效，这个时候就要用手动脱壳了（方法与ASPack类似）。以下就以加了UPXPR为例的记事本进行练习。附件在文末。&lt;/p&gt;
+
+&lt;p&gt;先查壳&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YywFX9.png&quot; alt=&quot;YywFX9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	在很多基础的题目中，找OEP+Dump是一个脱壳通法，Dump可以用od直接搞定，故找OEP是重点。&lt;/p&gt;
+
+&lt;p&gt;​	以下是几个找ESP常用方法。&lt;/p&gt;
+
+&lt;h3 id=&quot;esp定律&quot;&gt;ESP定律&lt;/h3&gt;
+
+&lt;h4 id=&quot;原理堆栈平衡&quot;&gt;原理：堆栈平衡&lt;/h4&gt;
+
+&lt;p&gt;​	在编写加壳软件时，必须保证外壳初始化的现场环境（各寄存器值）与原程序的现场环境是相同的。通常用pushad/popad、pushfd/popfd来保存和恢复现场环境。&lt;strong&gt;&lt;u&gt;即OEP的寄存器值等于入口（PUSHAD）的寄存器值&lt;/u&gt;&lt;/strong&gt;，可利用硬件断点。&lt;/p&gt;
+
+&lt;p&gt;​	思路：将最开始esp压栈地址的值下断点，找到下一个使个寄存器值与之全部相等的语句位置。&lt;/p&gt;
+
+&lt;p&gt;​	注意，经验表明本方法可用范围：在pushad一次F8后，fpu里头的寄存器只有ESP是红的（EIP除外）&lt;/p&gt;
+
+&lt;p&gt;​	另：PUSHAD相当于push eax/ecx/eddx/ebx/esp/esi/edi  (除EIP全压栈)&lt;/p&gt;
+
+&lt;h4 id=&quot;操作&quot;&gt;操作&lt;/h4&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyGaUe.png&quot; alt=&quot;YyGaUe.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;单步后只有ESP变了，可以用。&lt;/p&gt;
+
+&lt;p&gt;1.右键ESP,跟随Dump&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyJ2sx.png&quot; alt=&quot;YyJ2sx.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.选择弹出来的Hex Dump若干字符（多少无所谓），右键设置硬件byte断点（也不一定要byte)。这段就是一开始分析的入口和OEP一样的东东&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YytEjI.png&quot; alt=&quot;YytEjI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以通过Debug-hardware breakpoints 检查设置得咋样&lt;/p&gt;
+
+&lt;p&gt;3.&lt;code class=&quot;highlighter-rouge&quot;&gt;shift+F9&lt;/code&gt;运行看到popad和大跳&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YytJuq.png&quot; alt=&quot;YytJuq.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.F8单步，果然~（一般OEP很容易是PUSH,段首嘛）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YyNQZ6.png&quot; alt=&quot;YyNQZ6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;5.dump脱壳，就是把起始地址从0040E941换成004010CC&lt;del&gt;（史前大跳）&lt;/del&gt;详见后文&lt;a href=&quot;#jump&quot;&gt;Dump操作&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;单步步进法&quot;&gt;单步步进法&lt;/h3&gt;
+
+&lt;p&gt;效率较低但是最踏实。&lt;/p&gt;
+
+&lt;p&gt;OD传统艺能，经典动态调试，总之就是&lt;strong&gt;只下不上&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;技巧：&lt;/p&gt;
+
+&lt;p&gt;1.近CALL-F7,远CALL-F8,保证向下&lt;/p&gt;
+
+&lt;p&gt;2.要是要回跳在下一句F4&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;**3.关注大跳（JMP,JE,RETN)，很快就OEP**&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;按下不表&lt;del&gt;（其实是按到手酸QAQ）&lt;/del&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;内存镜像法&quot;&gt;内存镜像法&lt;/h3&gt;
+
+&lt;h4 id=&quot;原理&quot;&gt;原理&lt;/h4&gt;
+
+&lt;p&gt;这个也叫两次断点法，原理：利用OD断点-执行-消断点这一自动过程可以跳过大量繁琐无意义代码。因为一般的壳会依次对.text、.rdata、.data、.rsrc区块解压处理，所以可以先在.rdata、.data、.rsrc区块设置内存访问断点，等到程序中断，&lt;u&gt;代码段就解压了&lt;/u&gt;，再对代码段.text设置内存访问断点，就可以直接到OEP&lt;/p&gt;
+
+&lt;p&gt;1.ALT+M&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/16/YycGYn.png&quot; alt=&quot;YycGYn.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图，露出了三个完整的程序代码块。注意&lt;u&gt;**一定要是第一个程序代码块**&lt;/u&gt;，不能是DLL和壳的块。如图第一个设.data、.idata、.rsrc都行（其实本题.reloc只用设一次就欧了，但是重定位表一般情况下都会被删，所以一般还是看.rsrc）。断点-运行后再来第二次：.text,直接定到了OEP&lt;/p&gt;
+
+&lt;h2 id=&quot;dump&quot;&gt;Dump&lt;/h2&gt;
+
+&lt;h3 id=&quot;利用od&quot;&gt;利用OD&lt;/h3&gt;
+
+&lt;p&gt;优点：简便。&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&quot;jump&quot;&gt;缺点：不是所有都能Dump,比如对DLL映像&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;在OEP语句右键-用OllydbgDump脱壳调试进程-脱壳（记得勾重建输入表-over&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YydcSe.png&quot; alt=&quot;YydcSe.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;查壳，无壳状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/Yywi6J.png&quot; alt=&quot;Yywi6J.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;利用petool&quot;&gt;利用PEtool&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/17/Y2QFGd.png&quot; alt=&quot;Y2QFGd.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;抓进程-右键-Dump Fall&lt;/p&gt;
+
+&lt;p&gt;LordPE用法一样（U1S1LordPE好是好只能在XP虚拟机上挂太伤了）&lt;/p&gt;
+
+&lt;h3 id=&quot;anti-dump的处理&quot;&gt;Anti-Dump的处理&lt;/h3&gt;
+
+&lt;p&gt;见下一章XD&lt;/p&gt;
+
+&lt;h1 id=&quot;一些tips&quot;&gt;一些tips&lt;/h1&gt;
+
+&lt;h2 id=&quot;od&quot;&gt;OD&lt;/h2&gt;
+
+&lt;h3 id=&quot;快捷键&quot;&gt;快捷键&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+F2&lt;/code&gt;重载&lt;/p&gt;
+
+&lt;p&gt;F2设断点，shift+F9运行&lt;/p&gt;
+
+&lt;p&gt;遇到CALL,LOOP这些，F8路过，F7跟进&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alt+M&lt;/code&gt;打开内存镜像&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alt+O&lt;/code&gt;:Debugging options&lt;/p&gt;
+
+&lt;h3 id=&quot;从模块中删除分析&quot;&gt;从模块中删除分析&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/16/Yycv7Q.png&quot; alt=&quot;Yycv7Q.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(查了下可能会ESP定律没直接出现OEP)&lt;/p&gt;
+
+&lt;h2 id=&quot;md&quot;&gt;md&lt;/h2&gt;
+
+&lt;h3 id=&quot;页内跳转&quot;&gt;页内跳转&lt;/h3&gt;
+
+&lt;p&gt;​	定义一个锚(id)：&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;span id=&quot;jump&quot;&amp;gt;跳转到的地方&amp;lt;/span&amp;gt;&lt;/code&gt;
+​	使用markdown语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;[点击跳转](#jump)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;快捷键-1&quot;&gt;快捷键&lt;/h3&gt;
+
+&lt;p&gt;ctrl+B &lt;strong&gt;加粗&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ctrl+I &lt;em&gt;斜体&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ctrl+U &lt;u&gt;下划线&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;Alt+shift+5  &lt;del&gt;划掉&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;ctrl+\  清除格式&lt;/p&gt;</content><author><name>true</name></author><category term="reverse" /><summary type="html">有很多逆向题不能直接反汇编到我们需要的东东，第一步就得脱壳。这篇总结下脱壳的一些比较基础的方法。</summary></entry><entry><title type="html">博客一些功能实现</title><link href="http://localhost:4000/2020/05/13/some-question-in-blog.html" rel="alternate" type="text/html" title="博客一些功能实现" /><published>2020-05-13T00:00:00+08:00</published><updated>2020-05-13T00:00:00+08:00</updated><id>http://localhost:4000/2020/05/13/some%20question%20in%20blog</id><content type="html" xml:base="http://localhost:4000/2020/05/13/some-question-in-blog.html">&lt;h2 id=&quot;md插入图片问题&quot;&gt;md插入图片问题&lt;/h2&gt;
+
+&lt;p&gt;先码个md&lt;a href=&quot;https://www.jianshu.com/p/280c6a6f2594&quot;&gt;加图语法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;一开始想用相对路径，方法如下&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/tian_ci/article/details/82909919&quot;&gt;https://blog.csdn.net/tian_ci/article/details/82909919&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/YrNKMt&quot;&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YrNKMt.png&quot; alt=&quot;YrNKMt.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;此时md文件中可以正常显示图片，但是push到网上还是显示不出来。&lt;/p&gt;
+
+&lt;p&gt;经查，jekyll不会复制_post文件里的资产，得放在根目录下一个&lt;code class=&quot;highlighter-rouge&quot;&gt;不是以下划线开头&lt;/code&gt;的文件夹里头。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YrNLQI.png&quot; alt=&quot;YrNLQI.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;遂把图片丢到/assets/images里面，md文件显示失败&lt;/p&gt;
+
+&lt;p&gt;考虑可能是相对路径没用对？&lt;/p&gt;
+
+&lt;p&gt;搜一下相对路径用法：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;./assets/&lt;/code&gt;这样写表示，当前目录中的assets文件夹
+&lt;code class=&quot;highlighter-rouge&quot;&gt;../assets/&lt;/code&gt;这样写表示，当前目录的上一层目录中的assets文件夹
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/assets/&lt;/code&gt;这样写表示，项目根目录（可以指磁盘根目录，也可以指项目根目录，据实际情况而定）&lt;/p&gt;
+
+&lt;p&gt;遂把图片丢到../assets/images里面，md文件显示失败（？）&lt;/p&gt;
+
+&lt;p&gt;再来把图片丢到../assets里面，md文件显示成功&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/Yr0faV.png&quot; alt=&quot;Yr0faV.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然而push上去还是显示不了。。。&lt;del&gt;心态崩了&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;这个亚子：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/test1.png&quot; alt=&quot;test1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;换方法用图床。七猫云好麻烦QAQ，我自己用的&lt;a href=&quot;https://imgchr.com/&quot;&gt;路过图床&lt;/a&gt;，图传上去复制图片链接即可。（GitHub上建库也可）&lt;/p&gt;
+
+&lt;p&gt;格式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;![图片名字]（图片链接）
+![picture.png](https:/abc.com/123.png)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">md插入图片问题</summary></entry><entry><title type="html">jekyll 排错</title><link href="http://localhost:4000/2020/05/01/jekyll.html" rel="alternate" type="text/html" title="jekyll 排错" /><published>2020-05-01T14:05:21+08:00</published><updated>2020-05-01T14:05:21+08:00</updated><id>http://localhost:4000/2020/05/01/jekyll</id><content type="html" xml:base="http://localhost:4000/2020/05/01/jekyll.html">&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
+
+&lt;h3 id=&quot;gemloaderror&quot;&gt;(Gem::LoadError)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;D:\Github\EL-z10.github.io&amp;gt;jekyll -v
+Traceback (most recent call last):
+        10: from C:/Ruby26-x64/bin/jekyll:23:in `&amp;lt;main&amp;gt;'
+         9: from C:/Ruby26-x64/bin/jekyll:23:in `load'
+         8: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/jekyll-4.0.0/exe/jekyll:11:in `&amp;lt;top (required)&amp;gt;'
+         7: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/jekyll-4.0.0/lib/jekyll/plugin_manager.rb:52:in `require_from_bundler'
+         6: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler.rb:107:in `setup'
+         5: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:26:in `setup'
+         4: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:26:in `map'
+         3: from C:/Ruby26-x64/lib/ruby/2.6.0/forwardable.rb:230:in `each'
+         2: from C:/Ruby26-x64/lib/ruby/2.6.0/forwardable.rb:230:in `each'
+         1: from C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:31:in `block in setup'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/bundler-1.16.2/lib/bundler/runtime.rb:313:in `check_for_activated_spec!': You have already activated i18n 1.8.2, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;处理：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXNPf.png&quot; alt=&quot;YDXNPf.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;来自&lt;a href=&quot;https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&quot;&gt;https://superuser.com/questions/1483914/jekyll-serve-error-after-updating-ruby-bundler-and-jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;仅需在jekyll前键入bundle exec即可&lt;/p&gt;
+
+&lt;h2 id=&quot;bundlergemnotfound&quot;&gt;(Bundler::GemNotFound)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YDXYIP.png&quot; alt=&quot;YDXYIP.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;即可，不行的话再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;一些tips&quot;&gt;一些tips&lt;/h2&gt;
+
+&lt;p&gt;1.git bash中复制是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+ins&lt;/code&gt;, 粘贴是&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+shift&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;2.jekyll serve 状态中本地网站无法跟踪_config.yml的变化（技术原因），若更改 _config.yml需先ctrl+c退出，y确定，再&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;3.md文件名不能有中文，而且格式得是：2020-05-01-a title.md&lt;/p&gt;
+
+&lt;p&gt;中文会404。&lt;/p&gt;</content><author><name>true</name></author><category term="blog" /><summary type="html">解决办法</summary></entry></feed>

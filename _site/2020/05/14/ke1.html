@@ -1,0 +1,459 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="" />
+<meta name="keywords" content="ctf, reverse" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>壳及脱壳的一些基本办法（一）</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(98,170,255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(98,170,255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">EL BLOG</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">壳及脱壳的一些基本办法（一）</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(98,170,255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/05/17/ke2.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(98,170,255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(98,170,255);"><sapn class="main">壳及脱壳的一些基本办法（二）</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">壳及脱壳的一些基本办法（一）</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/05/13/some-question-in-blog.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(98,170,255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(98,170,255);"><sapn class="main">博客一些功能实现</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/05/17/ke2.html" class="leftchange" style="border-right: 1px solid rgb(98,170,255);border-bottom: 2px solid rgb(98,170,255);"><span>上一篇<br><br>壳及脱壳的一些基本办法（二）</span></a>
+    
+    
+      <a href="/2020/05/13/some-question-in-blog.html" class="rightchange" style="border-left: 1px solid rgb(98,170,255);border-bottom: 2px solid rgb(98,170,255);"><span>下一篇<br><br>博客一些功能实现</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(98,170,255); border-right: 8px solid rgb(98,170,255)">
+        ESP定律，单步跟踪，内存镜像法
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <p>有很多逆向题不能直接反汇编到我们需要的东东，第一步就得脱壳。这篇总结下脱壳的一些比较基础的方法。</p>
+
+<h1 id="什么是壳">什么是壳</h1>
+
+<h2 id="目的及原理">目的及原理</h2>
+
+<p>目的：压缩或保护（就是反逆向）</p>
+
+<p>​	壳可以看做一段加密程序，即在原PE文件（后面称之为宿主文件）上加一个新的区段（也就是壳），然后从这个新的区段上开始运行。加壳后，原始程序代码在磁盘文件中以加密后的形式存在，只在执行时在内存中还原。防止程序被静态反编译和非法修改。如下图：</p>
+
+<p><a href="https://imgchr.com/i/YDXbi6"><img src="https://s1.ax1x.com/2020/05/15/YDXbi6.png" alt="YDXbi6.png" /></a></p>
+
+<p>​	有名的压缩壳有UPX,ASPack，加密壳有ASProtect,Armadillo,EXECryptor,Themidia…</p>
+
+<p>​	这些大多有现成的脱壳机或者直接用kali解决，若碰到自编壳（如不用系统提供的GetProcAdress函数而是自编一个），只能手动脱壳。</p>
+
+<h1 id="查壳">查壳</h1>
+
+<p>最简单快捷的就是用软件啦，比如<code class="highlighter-rouge">exeinfope</code>和<code class="highlighter-rouge">PEID</code></p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YDX7Ix.png" alt="YDX7Ix.png" /></p>
+
+<p>像这个就是UPX壳</p>
+
+<h1 id="基础的脱壳办法">基础的脱壳办法</h1>
+
+<h2 id="找oep">找OEP</h2>
+
+<p>​	当外壳所保护的程序运行时，会先执行外壳程序，外壳程序负责在内存中把原程序解压、还原， 并把控制权还给解压后的真正程序，再跳到原来的程序入口点。一般的壳在这里会有一条明显的“分 界线”，这个<u>解压后真正的程序入口点称为“OEP”</u> （ Original Entry Point,原程序入口点)</p>
+
+<p>​	加壳后，原程序中多了一个区块.pediy。这个区块就是外壳，相当于一个文件加载器（Loader ）。当RebPE运行时，各区块被Windows操作系统映射到内存中，现在的入口点地址是13000h,指向 外壳。当外壳拿到控制权后，会通过各种方式获得自己所需要的API地址，解密原程序各区块的数 据，填充IAT（导入地址表）。做完这些工作后，就准备跳到OEP处（即401130h）执行，如图：</p>
+
+<p>​	<img src="https://s1.ax1x.com/2020/05/15/YyZe0I.png" alt="YyZe0I.png" /></p>
+
+<p>​	这也告诉我们：OEP总是与大跳如影随形（JMP,JZ）</p>
+
+<p>​	upx壳较为常见，一般使用cmd就很容易地可以脱掉</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPX -d 文件名
+</code></pre></div></div>
+
+<p>​	在upx基础上，一些保护工具如UPXPR可以使以上命令行失效，这个时候就要用手动脱壳了（方法与ASPack类似）。以下就以加了UPXPR为例的记事本进行练习。附件在文末。</p>
+
+<p>先查壳</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YywFX9.png" alt="YywFX9.png" /></p>
+
+<p>​	在很多基础的题目中，找OEP+Dump是一个脱壳通法，Dump可以用od直接搞定，故找OEP是重点。</p>
+
+<p>​	以下是几个找ESP常用方法。</p>
+
+<h3 id="esp定律">ESP定律</h3>
+
+<h4 id="原理堆栈平衡">原理：堆栈平衡</h4>
+
+<p>​	在编写加壳软件时，必须保证外壳初始化的现场环境（各寄存器值）与原程序的现场环境是相同的。通常用pushad/popad、pushfd/popfd来保存和恢复现场环境。<strong><u>即OEP的寄存器值等于入口（PUSHAD）的寄存器值</u></strong>，可利用硬件断点。</p>
+
+<p>​	思路：将最开始esp压栈地址的值下断点，找到下一个使个寄存器值与之全部相等的语句位置。</p>
+
+<p>​	注意，经验表明本方法可用范围：在pushad一次F8后，fpu里头的寄存器只有ESP是红的（EIP除外）</p>
+
+<p>​	另：PUSHAD相当于push eax/ecx/eddx/ebx/esp/esi/edi  (除EIP全压栈)</p>
+
+<h4 id="操作">操作</h4>
+
+<p>​	<img src="https://s1.ax1x.com/2020/05/15/YyGaUe.png" alt="YyGaUe.png" /></p>
+
+<p>单步后只有ESP变了，可以用。</p>
+
+<p>1.右键ESP,跟随Dump<img src="https://s1.ax1x.com/2020/05/15/YyJ2sx.png" alt="YyJ2sx.png" /></p>
+
+<p>2.选择弹出来的Hex Dump若干字符（多少无所谓），右键设置硬件byte断点（也不一定要byte)。这段就是一开始分析的入口和OEP一样的东东</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YytEjI.png" alt="YytEjI.png" /></p>
+
+<p>可以通过Debug-hardware breakpoints 检查设置得咋样</p>
+
+<p>3.<code class="highlighter-rouge">shift+F9</code>运行看到popad和大跳</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YytJuq.png" alt="YytJuq.png" /></p>
+
+<p>4.F8单步，果然~（一般OEP很容易是PUSH,段首嘛）</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YyNQZ6.png" alt="YyNQZ6.png" /></p>
+
+<p>5.dump脱壳，就是把起始地址从0040E941换成004010CC<del>（史前大跳）</del>详见后文<a href="#jump">Dump操作</a></p>
+
+<h3 id="单步步进法">单步步进法</h3>
+
+<p>效率较低但是最踏实。</p>
+
+<p>OD传统艺能，经典动态调试，总之就是<strong>只下不上</strong>。</p>
+
+<p>技巧：</p>
+
+<p>1.近CALL-F7,远CALL-F8,保证向下</p>
+
+<p>2.要是要回跳在下一句F4</p>
+
+<p><u>**3.关注大跳（JMP,JE,RETN)，很快就OEP**</u></p>
+
+<p>按下不表<del>（其实是按到手酸QAQ）</del></p>
+
+<h3 id="内存镜像法">内存镜像法</h3>
+
+<h4 id="原理">原理</h4>
+
+<p>这个也叫两次断点法，原理：利用OD断点-执行-消断点这一自动过程可以跳过大量繁琐无意义代码。因为一般的壳会依次对.text、.rdata、.data、.rsrc区块解压处理，所以可以先在.rdata、.data、.rsrc区块设置内存访问断点，等到程序中断，<u>代码段就解压了</u>，再对代码段.text设置内存访问断点，就可以直接到OEP</p>
+
+<p>1.ALT+M</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/16/YycGYn.png" alt="YycGYn.png" /></p>
+
+<p>如图，露出了三个完整的程序代码块。注意<u>**一定要是第一个程序代码块**</u>，不能是DLL和壳的块。如图第一个设.data、.idata、.rsrc都行（其实本题.reloc只用设一次就欧了，但是重定位表一般情况下都会被删，所以一般还是看.rsrc）。断点-运行后再来第二次：.text,直接定到了OEP</p>
+
+<h2 id="dump">Dump</h2>
+
+<h3 id="利用od">利用OD</h3>
+
+<p>优点：简便。</p>
+
+<p><span id="jump">缺点：不是所有都能Dump,比如对DLL映像</span></p>
+
+<p>在OEP语句右键-用OllydbgDump脱壳调试进程-脱壳（记得勾重建输入表-over</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/YydcSe.png" alt="YydcSe.png" /></p>
+
+<p>查壳，无壳状态。</p>
+
+<p><img src="https://s1.ax1x.com/2020/05/15/Yywi6J.png" alt="Yywi6J.png" /></p>
+
+<h3 id="利用petool">利用PEtool</h3>
+
+<p><img src="https://s1.ax1x.com/2020/05/17/Y2QFGd.png" alt="Y2QFGd.png" /></p>
+
+<p>抓进程-右键-Dump Fall</p>
+
+<p>LordPE用法一样（U1S1LordPE好是好只能在XP虚拟机上挂太伤了）</p>
+
+<h3 id="anti-dump的处理">Anti-Dump的处理</h3>
+
+<p>见下一章XD</p>
+
+<h1 id="一些tips">一些tips</h1>
+
+<h2 id="od">OD</h2>
+
+<h3 id="快捷键">快捷键</h3>
+
+<p><code class="highlighter-rouge">ctrl+F2</code>重载</p>
+
+<p>F2设断点，shift+F9运行</p>
+
+<p>遇到CALL,LOOP这些，F8路过，F7跟进</p>
+
+<p><code class="highlighter-rouge">alt+M</code>打开内存镜像</p>
+
+<p><code class="highlighter-rouge">alt+O</code>:Debugging options</p>
+
+<h3 id="从模块中删除分析">从模块中删除分析</h3>
+
+<p><img src="https://s1.ax1x.com/2020/05/16/Yycv7Q.png" alt="Yycv7Q.png" /></p>
+
+<p>(查了下可能会ESP定律没直接出现OEP)</p>
+
+<h2 id="md">md</h2>
+
+<h3 id="页内跳转">页内跳转</h3>
+
+<p>​	定义一个锚(id)：<code class="highlighter-rouge">&lt;span id="jump"&gt;跳转到的地方&lt;/span&gt;</code>
+​	使用markdown语法：<code class="highlighter-rouge">[点击跳转](#jump)</code></p>
+
+<h3 id="快捷键-1">快捷键</h3>
+
+<p>ctrl+B <strong>加粗</strong></p>
+
+<p>Ctrl+I <em>斜体</em></p>
+
+<p>Ctrl+U <u>下划线</u></p>
+
+<p>Alt+shift+5  <del>划掉</del></p>
+
+<p>ctrl+\  清除格式</p>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>welcome to my blog ©
+  
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
