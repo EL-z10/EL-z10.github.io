@@ -1,0 +1,805 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="" />
+<meta name="keywords" content="ctf, reverse" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>爬虫的简单实战</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(240 255 240) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(240 255 240);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">EL BLOG</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">爬虫的简单实战</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(240 255 240);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="javascript:;" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(240 255 240)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(240 255 240);"><sapn class="main">没有上一页咯</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">爬虫的简单实战</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/12/07/qianduan.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(240 255 240)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(240 255 240);"><sapn class="main">前端的初步学习</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="javascript:;" class="leftchange" style="border-right: 1px solid rgb(240 255 240);border-bottom: 2px solid rgb(240 255 240);"><span><br>没有上一篇咯</span></a>
+    
+    
+      <a href="/2020/12/07/qianduan.html" class="rightchange" style="border-left: 1px solid rgb(240 255 240);border-bottom: 2px solid rgb(240 255 240);"><span>下一篇<br><br>前端的初步学习</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(240 255 240); border-right: 8px solid rgb(240 255 240)">
+        在steam爬取绝地求生的评论
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h1 id="爬虫实战学习与记录">爬虫实战学习与记录</h1>
+
+<blockquote>
+  <p>学习参考</p>
+
+  <p>https://cloud.tencent.com/developer/article/1085988</p>
+
+  <p>https://blog.csdn.net/qq_38607035/article/details/82595032</p>
+</blockquote>
+
+<p>目的：爬取PLAYERUNKNOWN’S BATTLEGROUNDS的评价</p>
+
+<h2 id="获取入口">获取入口</h2>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201206222443.png" alt="image-20201206222436106" />
+入口为：https://steamcommunity.com/app/578080/reviews/?browsefilter=toprated&amp;snr=1<em>5_100010</em></p>
+
+<h2 id="使用python模拟请求获得页面源码"><strong>使用Python模拟请求，获得页面源码</strong></h2>
+
+<p>使用Chrome抓取网页请求。发现关键请求。</p>
+
+<p><img src="C:\Users\伍\AppData\Roaming\Typora\typora-user-images\image-20201207165418887.png" alt="image-20201207165418887" /></p>
+
+<p>具体如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201207170436.png" alt="image-20201207170436374" /></p>
+
+<p>是个GET请求。</p>
+
+<p>模拟请求，获得源码。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="err">‘</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">steamcommunity</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="mi">578080</span><span class="o">/</span><span class="n">reviews</span><span class="o">/</span><span class="err">?</span><span class="n">browsefilter</span><span class="o">=</span><span class="n">toprated</span><span class="o">&amp;</span><span class="n">snr</span><span class="o">=</span><span class="mi">1_5_100010</span><span class="n">_</span><span class="err">‘</span> 
+<span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">text</span>
+<span class="k">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="报错及解决编码问题">报错及解决（编码问题）</h3>
+
+<p>UnicodeEncodeError: ‘gbk’ codec can’t encode character ‘\xa9’ in position 13282: illegal multibyte sequence</p>
+
+<p>上网搜原因</p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201207171622.png" alt="image-20201207171621991" /></p>
+
+<p>检查网页源码，发现是zh-cn编码</p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201207171712.png" alt="image-20201207171712339" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nb">buffer</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">)</span> <span class="c1">#改变标准输出的默认编码
+</span></code></pre></div></div>
+
+<p>编译通过，通过审计代码发现可以显示英文评论，但是还是不能显示中文。(&lt;div class="date_posted"&gt;)是通过检查出来的</p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201207173345.png" alt="image-20201207173345493" /></p>
+
+<p>接着查，改代码为</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">htmlBytes</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>好吧，，，还是不行</p>
+
+<p>发现改个头就行</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>    <span class="s">'Accept-Language'</span><span class="p">:</span> <span class="s">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span><span class="p">}</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">text</span>
+</code></pre></div></div>
+
+<h2 id="解析">解析</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">html</span><span class="p">))</span> <span class="c1">#测试得到html = requests.get(url).text是str格式，可以用soup解析。
+</span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'lxml'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>用自带的解析器‘html.parser’也行。</p>
+
+<h2 id="通过网页审查定位">通过网页审查定位</h2>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201209112538.png" alt="image-20201209112537977" /></p>
+
+<p>发现每个评论都在一个class=”apphub_CardContentMain”中 class=”date_posted”（包含日期和评论。</p>
+
+<p>开始爬。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'div'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'apphub_CardContentMain'</span><span class="p">})</span>
+<span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>结果如下：<img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201209114307.png" alt="image-20201209114307313" /></p>
+
+<p>虽然爬出了评论和日期，但是空格过多。</p>
+
+<p>用.strip()移除</p>
+
+<h2 id="爬取更多评论">爬取更多评论</h2>
+
+<p>抓包，加载新界面。</p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201209120940.png" alt="image-20201209120940870" /></p>
+
+<p><img src="https://raw.githubusercontent.com/EL-z10/images/master/img/20201209121042.png" alt="image-20201209121042624" /></p>
+
+<p>这些是控制新页面评论数的参数</p>
+
+<p>这些是源url 注意参数上传方法。</p>
+
+<pre><code class="language-web-idl">https://steamcommunity.com/app/578080/homecontent/?userreviewscursor=AoIFP%2FU%2FPQAAAAByn6ecAQ%3D%3D&amp;userreviewsoffset=10&amp;p=2&amp;workshopitemspage=2&amp;readytouseitemspage=2&amp;mtxitemspage=2&amp;itemspage=2&amp;screenshotspage=2&amp;videospage=2&amp;artpage=2&amp;allguidepage=2&amp;webguidepage=2&amp;integratedguidepage=2&amp;discussionspage=2&amp;numperpage=10&amp;browsefilter=toprated&amp;browsefilter=toprated&amp;l=schinese&amp;appHubSubSection=10&amp;filterLanguage=default&amp;searchText=&amp;forceanon=1
+</code></pre>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">sys</span><span class="p">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nb">buffer</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">)</span> <span class="c1">#改变标准输出的默认编码
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>    <span class="s">'Accept-Language'</span><span class="p">:</span> <span class="s">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://steamcommunity.com/app/578080/homecontent/??userreviewsoffset='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s">'&amp;p='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;workshopitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;readytouseitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;mtxitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;itemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;screenshotspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;videospage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;artpage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;allguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;webguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;integratedguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;discussionspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;numperpage=10&amp;browsefilter=toprated&amp;browsefilter=toprated&amp;appid=433850&amp;appHubSubSection=10&amp;l=schinese&amp;filterLanguage=default&amp;searchText=&amp;forceanon=1'</span>
+
+    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">text</span>
+<span class="c1">#print(type(html))
+</span>    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'div'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'apphub_CardContentMain'</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">strip</span><span class="p">())</span>
+
+
+</code></pre></div></div>
+
+<p>可以手动改爬多少条。此代码是100条。</p>
+
+<p>改成存txt.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">sys</span><span class="p">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nb">buffer</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">)</span> <span class="c1">#改变标准输出的默认编码
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>    <span class="s">'Accept-Language'</span><span class="p">:</span> <span class="s">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span><span class="p">}</span>
+<span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'steamComments.txt'</span><span class="p">,</span> <span class="s">'w+'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">'https://steamcommunity.com/app/578080/homecontent/??userreviewsoffset='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s">'&amp;p='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;workshopitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;readytouseitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;mtxitemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;itemspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;screenshotspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;videospage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;artpage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;allguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;webguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;integratedguidepage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;discussionspage='</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">'&amp;numperpage=10&amp;browsefilter=toprated&amp;browsefilter=toprated&amp;appid=433850&amp;appHubSubSection=10&amp;l=schinese&amp;filterLanguage=default&amp;searchText=&amp;forceanon=1'</span>
+
+    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">text</span>
+<span class="c1">#print(type(html))
+</span>    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'div'</span><span class="p">,</span> <span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'apphub_CardContentMain'</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="nb">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">comment</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">strip</span><span class="p">())</span>
+
+<span class="nb">file</span><span class="p">.</span><span class="n">close</span>
+</code></pre></div></div>
+
+<p>完成。</p>
+
+<h1 id="知识点积累">知识点积累</h1>
+
+<h2 id="http请求头">HTTP请求头</h2>
+
+<h3 id="什么是http协议和https协议">什么是HTTP协议和HTTPS协议</h3>
+
+<p>HTTP协议：全称是HyperText Transfer Protocol,中文意思是超文本传输协议，是一种发布和接收HTML页面的方法。服务器端口是80</p>
+
+<p>HTTPS协议：是HTTP协议的加密版本，在HTTP的基础上加入了SSL层。服务器端口为443</p>
+
+<h3 id="在浏览器中发送一个http请求的过程">在浏览器中发送一个HTTP请求的过程:</h3>
+
+<p>注意：此过程关注点在Python爬虫并非细节请求过程</p>
+
+<ol>
+  <li>当用户在浏览器的地址栏中输入一个URL并按回车键之后，浏览器会向HTTP服务器发送HTTP请求。HTTP请求主要分为“Get”和“Post”两种方法。</li>
+  <li>当我们在浏览器输入URL <a href="http://www.baidu.com/">http://www.baidu.com</a> 的时候，浏览器发送一个Request请求去获取 <a href="http://www.baidu.com/">http://www.baidu.com</a> 的html文件，服务器把Response文件对象发送回给浏览器。</li>
+  <li>浏览器分析Response中的 HTML，发现其中引用了很多其他文件，比如Images文件，CSS文件，JS文件。 浏览器会自动再次发送Request去获取图片，CSS文件，或者JS文件。</li>
+  <li>当所有的文件都下载成功后，网页会根据HTML语法结构，完整的显示出来了。</li>
+</ol>
+
+<h3 id="url详解">url详解</h3>
+
+<p><code class="highlighter-rouge">URL</code>是<code class="highlighter-rouge">Uniform Resource Locator</code>的简写，统一资源定位符。 一个<code class="highlighter-rouge">URL</code>由以下几部分组成：</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">scheme://host:port/path/</span><span class="err">?</span><span class="nx">query-string</span><span class="o">=</span><span class="nf">xxx</span><span class="c">#anchor</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><strong>scheme</strong>：代表的是访问的协议，一般为<code class="highlighter-rouge">http</code>或者<code class="highlighter-rouge">https</code>以及<code class="highlighter-rouge">ftp</code>等。</li>
+  <li><strong>host</strong>：主机名，域名，比如<code class="highlighter-rouge">www.baidu.com</code>。</li>
+  <li><strong>port</strong>：端口号。当你访问一个网站的时候，浏览器默认使用80端口。</li>
+  <li><strong>path</strong>：查找路径。比如：<code class="highlighter-rouge">www.jianshu.com/trending/now</code>，后面的<code class="highlighter-rouge">trending/now</code>就是<code class="highlighter-rouge">path</code>。</li>
+  <li><strong>query-string</strong>：查询字符串，比如：<code class="highlighter-rouge">www.baidu.com/s?wd=python</code>，后面的<code class="highlighter-rouge">wd=python</code>就是查询字符串。</li>
+  <li><strong>anchor</strong>：锚点，后台一般不用管，前端用来做页面定位的。</li>
+</ul>
+
+<p>在浏览器中请求一个<code class="highlighter-rouge">url</code>，浏览器会对这个url进行一个编码。除英文字母，数字和部分符号外，其他的全部使用百分号+十六进制码值进行编码。</p>
+
+<h3 id="常用的请求方法">常用的请求方法：</h3>
+
+<p>在<code class="highlighter-rouge">Http</code>协议中，定义了八种请求方法。这里介绍两种常用的请求方法，分别是<code class="highlighter-rouge">get</code>请求和<code class="highlighter-rouge">post</code>请求。</p>
+
+<ol>
+  <li><code class="highlighter-rouge">get</code>请求：一般情况下，只从服务器获取数据下来，并不会对服务器资源产生任何影响的时候会使用<code class="highlighter-rouge">get</code>请求。</li>
+  <li><code class="highlighter-rouge">post</code>请求：向服务器发送数据（登录）、上传文件等，会对服务器资源产生影响的时候会使用<code class="highlighter-rouge">post</code>请求。 以上是在网站开发中常用的两种方法。并且一般情况下都会遵循使用的原则。但是有的网站和服务器为了做反爬虫机制，也经常会不按常理出牌，有可能一个应该使用<code class="highlighter-rouge">get</code>方法的请求就一定要改成<code class="highlighter-rouge">post</code>请求，这个要视情况而定。</li>
+</ol>
+
+<h3 id="请求头常见参数">请求头常见参数：</h3>
+
+<p>在<code class="highlighter-rouge">http</code>协议中，向服务器发送一个请求，数据分为三部分，第一个是把数据放在url中，第二个是把数据放在<code class="highlighter-rouge">body</code>中（在<code class="highlighter-rouge">post</code>请求中），第三个就是把数据放在<code class="highlighter-rouge">head</code>中。这里介绍在网络爬虫中经常会用到的一些请求头参数：</p>
+
+<ol>
+  <li><code class="highlighter-rouge">User-Agent</code>：浏览器名称。这个在网络爬虫中经常会被使用到。请求一个网页的时候，服务器通过这个参数就可以知道这个请求是由哪种浏览器发送的。如果我们是通过爬虫发送请求，那么我们的<code class="highlighter-rouge">User-Agent</code>就是<code class="highlighter-rouge">Python</code>，这对于那些有反爬虫机制的网站来说，可以轻易的判断你这个请求是爬虫。因此我们要经常设置这个值为一些浏览器的值，来伪装我们的爬虫。</li>
+  <li><code class="highlighter-rouge">Referer</code>：表明当前这个请求是从哪个<code class="highlighter-rouge">url</code>过来的。这个一般也可以用来做反爬虫技术。如果不是从指定页面过来的，那么就不做相关的响应。</li>
+  <li><code class="highlighter-rouge">Cookie</code>：<code class="highlighter-rouge">http</code>协议是无状态的。也就是同一个人发送了两次请求，服务器没有能力知道这两个请求是否来自同一个人。因此这时候就用<code class="highlighter-rouge">cookie</code>来做标识。一般如果想要做登录后才能访问的网站，那么就需要发送<code class="highlighter-rouge">cookie</code>信息了。</li>
+</ol>
+
+<h3 id="常见响应状态码">常见响应状态码：</h3>
+
+<ol>
+  <li><code class="highlighter-rouge">200</code>：请求正常，服务器正常的返回数据。</li>
+  <li><code class="highlighter-rouge">301</code>：永久重定向。比如在访问<code class="highlighter-rouge">www.jingdong.com</code>的时候会重定向到<code class="highlighter-rouge">www.jd.com</code>。</li>
+  <li><code class="highlighter-rouge">302</code>：临时重定向。比如在访问一个需要登录的页面的时候，而此时没有登录，那么就会重定向到登录页面。</li>
+  <li><code class="highlighter-rouge">400</code>：请求的<code class="highlighter-rouge">url</code>在服务器上找不到。换句话说就是请求<code class="highlighter-rouge">url</code>错误。</li>
+  <li><code class="highlighter-rouge">403</code>：服务器拒绝访问，权限不够。</li>
+  <li><code class="highlighter-rouge">500</code>：服务器内部错误。可能是服务器出现<code class="highlighter-rouge">bug</code>了。</li>
+</ol>
+
+<h3 id="chrome抓包工具">Chrome抓包工具：</h3>
+
+<p><code class="highlighter-rouge">Chrome</code>浏览器是一个非常亲近开发者的浏览器。可以方便的查看网络请求以及发送的参数。对着网页<code class="highlighter-rouge">右键-&gt;检查</code>。然后就可以打开开发者选项。打开Network(网络面板)，刷新网页，点击加载的资源，可以在右侧资源查看相应 Header ,Preview,Response,Timing选项</p>
+
+<h2 id="beautiful-soup">beautiful soup</h2>
+
+<h3 id="安装及引用">安装及引用</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Beautiful Soup</span>
+pip <span class="nb">install </span>bs4
+
+<span class="c"># 解析器</span>
+pip <span class="nb">install </span>lxml
+pip <span class="nb">install </span>html5lib
+<span class="c"># 初始化</span>
+from bs4 import BeautifulSoup
+
+<span class="c"># 方法一，直接打开文件</span>
+soup <span class="o">=</span> BeautifulSoup<span class="o">(</span>open<span class="o">(</span><span class="s2">"index.html"</span><span class="o">))</span>
+
+<span class="c"># 方法二，指定数据</span>
+resp <span class="o">=</span> <span class="s2">"&lt;html&gt;data&lt;/html&gt;"</span>
+soup <span class="o">=</span> BeautifulSoup<span class="o">(</span>resp, <span class="s1">'lxml'</span><span class="o">)</span>
+
+<span class="c"># soup 为 BeautifulSoup 类型对象</span>
+print<span class="o">(</span><span class="nb">type</span><span class="o">(</span>soup<span class="o">))</span>
+</code></pre></div></div>
+
+<h3 id="标签搜索及过滤">标签搜索及过滤</h3>
+
+<h4 id="基本方法">基本方法</h4>
+
+<p>标签搜索有find_all() 和find() 两个基本的搜索方法，find_all() 方法会返回所有匹配关键字的标签列表，find()方法则只返回一个匹配结果。</p>
+
+<h5 id="find函数"><strong>find函数</strong>:</h5>
+
+<p>1.已知ID <code class="highlighter-rouge">link2_tag = soup.find(id='link2')</code></p>
+
+<p>2.利用标签+class名（键值对）<code class="highlighter-rouge">name_box = soup.find('h1', attrs={'class': 'name'})</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 指定 url 
+</span><span class="n">quote_page</span> <span class="o">=</span> <span class="s">'http://www.bloomberg.com/quote/SPX:IND'</span>
+<span class="c1"># 访问这个网站并且返回这个网站的 html 源码然后保存在 ‘page’ 中
+</span><span class="n">page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">quote_page</span><span class="p">)</span>
+<span class="c1"># 使用 beautiful soup 解析这个 html 然后保存在 ‘soup’ 变量中。
+</span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+<span class="c1"># 获取 Class 对应的标签
+</span><span class="n">name_box</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'h1'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">'class'</span><span class="p">:</span> <span class="s">'name'</span><span class="p">})</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">name_box</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip() 用来移除首尾的空白符
+</span><span class="k">print</span> <span class="n">name</span>
+</code></pre></div></div>
+
+<h5 id="find_all函数">find_all函数</h5>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="s">'lxml'</span><span class="p">)</span>
+
+<span class="c1"># 返回一个标签名为"a"的Tag
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+
+<span class="c1"># 返回所有tag 列表
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+
+<span class="c1">## find_all方法可被简写
+</span><span class="n">soup</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+
+<span class="c1">#找出所有以b开头的标签
+</span><span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"^b"</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">tag</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1">#找出列表中的所有标签
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"p"</span><span class="p">])</span>
+
+<span class="c1"># 查找标签名为p，class属性为"title"
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"p"</span><span class="p">,</span> <span class="s">"title"</span><span class="p">)</span>
+
+<span class="c1"># 查找属性id为"link2"
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">"link2"</span><span class="p">)</span>
+
+<span class="c1"># 查找存在属性id的
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1">#
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"elsie"</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="s">'link1'</span><span class="p">)</span>
+
+<span class="c1"># 
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"data-foo"</span><span class="p">:</span> <span class="s">"value"</span><span class="p">})</span>
+
+<span class="c1">#查找标签文字包含"sisters"
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"sisters"</span><span class="p">))</span>
+
+<span class="c1"># 获取指定数量的结果
+</span><span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 自定义匹配方法
+</span><span class="k">def</span> <span class="nf">has_class_but_no_id</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tag</span><span class="p">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s">'class'</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">tag</span><span class="p">.</span><span class="n">has_attr</span><span class="p">(</span><span class="s">'id'</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">has_class_but_no_id</span><span class="p">)</span>
+
+<span class="c1"># 仅对属性使用自定义匹配方法
+</span><span class="k">def</span> <span class="nf">not_lacie</span><span class="p">(</span><span class="n">href</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">href</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"lacie"</span><span class="p">).</span><span class="n">search</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">href</span><span class="o">=</span><span class="n">not_lacie</span><span class="p">)</span>
+
+<span class="c1"># 调用tag的 find_all() 方法时,Beautiful Soup会检索当前tag的所有子孙节点,如果只想搜索tag的直接子节点,可以使用参数 recursive=False 
+</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"title"</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="扩展方法">扩展方法</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>find_parents()</td>
+      <td>所有父辈节点</td>
+    </tr>
+    <tr>
+      <td>find_parent()</td>
+      <td>第一个父辈节点</td>
+    </tr>
+    <tr>
+      <td>find_next_siblings()</td>
+      <td>之后的所有兄弟节点</td>
+    </tr>
+    <tr>
+      <td>find_next_sibling()</td>
+      <td>之后的第一个兄弟节点</td>
+    </tr>
+    <tr>
+      <td>find_previous_siblings()</td>
+      <td>之前的所有兄弟节点</td>
+    </tr>
+    <tr>
+      <td>find_previous_sibling()</td>
+      <td>之前的第一个兄弟节点</td>
+    </tr>
+    <tr>
+      <td>find_all_next()</td>
+      <td>之后的所有元素</td>
+    </tr>
+    <tr>
+      <td>find_next()</td>
+      <td>之后的第一个元素</td>
+    </tr>
+    <tr>
+      <td>find_all_previous()</td>
+      <td>之前的所有元素</td>
+    </tr>
+    <tr>
+      <td>find_previous()</td>
+      <td>之前的第一个元素</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="css选择器">CSS选择器</h4>
+
+<p>Beautiful Soup支持大部分的CSS选择器 http://www.w3.org/TR/CSS2/selector.html, 在 Tag 或 BeautifulSoup 对象的 .select() 方法中传入字符串参数, 即可使用CSS选择器的语法找到tag。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">html_doc</span> <span class="o">=</span> <span class="s">"""
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;The Dormouse's story&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+
+  &lt;p class="story"&gt;
+    Once upon a time there were three little sisters; and their names were
+    &lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,
+    &lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt;
+    and
+    &lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;
+    and they lived at the bottom of a well.
+  &lt;/p&gt;
+
+  &lt;p class="story"&gt;...&lt;/p&gt;
+"""</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_doc</span><span class="p">)</span>
+
+<span class="c1"># 所有 a 标签
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+
+<span class="c1"># 逐层查找
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"body a"</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"html head title"</span><span class="p">)</span>
+
+<span class="c1"># tag标签下的直接子标签
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"head &gt; title"</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"p &gt; #link1"</span><span class="p">)</span>
+
+<span class="c1"># 所有匹配标签之后的兄弟标签
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#link1 ~ .sister"</span><span class="p">)</span>
+
+<span class="c1"># 匹配标签之后的第一个兄弟标签
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#link1 + .sister"</span><span class="p">)</span>
+
+<span class="c1"># 根据calss类名
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">".sister"</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"[class~=sister]"</span><span class="p">)</span>
+
+<span class="c1"># 根据ID查找
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#link1"</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"a#link1"</span><span class="p">)</span>
+
+<span class="c1"># 根据多个ID查找
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#link1,#link2"</span><span class="p">)</span>
+
+<span class="c1"># 根据属性查找
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'a[href]'</span><span class="p">)</span>
+
+<span class="c1"># 根据属性值查找
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'a[href^="http://example.com/"]'</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'a[href$="tillie"]'</span><span class="p">)</span>
+<span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">'a[href*=".com/el"]'</span><span class="p">)</span>
+
+<span class="c1"># 只获取一个匹配结果
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select</span><span class="p">(</span><span class="s">".sister"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 只获取一个匹配结果
+</span><span class="n">soup</span><span class="p">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">".sister"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="标签对象方法">标签对象方法</h3>
+
+<h4 id="标签属性">标签属性</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="s">'&lt;p class="body strikeout" id="1"&gt;Extremely bold&lt;/p&gt;&lt;p class="body strikeout" id="2"&gt;Extremely bold2&lt;/p&gt;'</span><span class="p">)</span>
+<span class="c1"># 获取所有的 p标签对象
+</span><span class="n">tags</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"p"</span><span class="p">)</span>
+<span class="c1"># 获取第一个p标签对象
+</span><span class="n">tag</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">p</span>
+<span class="c1"># 输出标签类型 
+</span><span class="nb">type</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="c1"># 标签名
+</span><span class="n">tag</span><span class="p">.</span><span class="n">name</span>
+<span class="c1"># 标签属性
+</span><span class="n">tag</span><span class="p">.</span><span class="n">attrs</span>
+<span class="c1"># 标签属性class 的值
+</span><span class="n">tag</span><span class="p">[</span><span class="s">'class'</span><span class="p">]</span>
+<span class="c1"># 标签包含的文字内容，对象NavigableString 的内容
+</span><span class="n">tag</span><span class="p">.</span><span class="n">string</span>
+
+<span class="c1"># 返回标签内所有的文字内容
+</span><span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">.</span><span class="n">strings</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="c1"># 返回标签内所有的文字内容, 并去掉空行
+</span><span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">.</span><span class="n">stripped_strings</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="c1"># 获取到tag中包含的所有及包括子孙tag中的NavigableString内容，并以Unicode字符串格式输出
+</span><span class="n">tag</span><span class="p">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="c1">## 以"|"分隔
+</span><span class="n">tag</span><span class="p">.</span><span class="n">get_text</span><span class="p">(</span><span class="s">"|"</span><span class="p">)</span>
+<span class="c1">## 以"|"分隔，不输出空字符
+</span><span class="n">tag</span><span class="p">.</span><span class="n">get_text</span><span class="p">(</span><span class="s">"|"</span><span class="p">,</span> <span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="获取子节点">获取子节点</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tag</span><span class="p">.</span><span class="n">contents</span>  <span class="c1"># 返回第一层子节点的列表
+</span><span class="n">tag</span><span class="p">.</span><span class="n">children</span>  <span class="c1"># 返回第一层子节点的listiterator 对象
+</span><span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">.</span><span class="n">children</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+
+<span class="n">tag</span><span class="p">.</span><span class="n">descendants</span> <span class="c1"># 递归返回所有子节点
+</span><span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">.</span><span class="n">descendants</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="获取父节点">获取父节点</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tag</span><span class="p">.</span><span class="n">parent</span> <span class="c1"># 返回第一层父节点标签
+</span><span class="n">tag</span><span class="p">.</span><span class="n">parents</span> <span class="c1"># 递归得到元素的所有父辈节点
+</span>
+<span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">tag</span><span class="p">.</span><span class="n">parents</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></div>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>welcome to my blog ©
+  
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!--看板娘-->
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":130,"height":160},"mobile":{"show":true},"log":false});</script></body>
+
+</body>
+</html>
