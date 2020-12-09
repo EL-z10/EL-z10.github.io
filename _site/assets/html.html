@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+	<meta http-equiv="Content-Language" content="zh-cn" />
+	<meta content=always name=referrer>
+						<meta name="keywords" content=",前端开发者手册,HTML &amp; CSS教程">
+			
+						<meta name="description" content="前端开发者常用的网络技术如下:HyperTextMarkupLanguage(超文本标记语言,又称HTML)Cascad...">
+			
+			<title> - 前端开发者手册 - 极客学院Wiki</title>
+	
+	<link rel="stylesheet" type="text/css" href="//e.jikexueyuan.com/static/css/register.css">
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="/assets/wiki2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/wiki2.1/css/detail.css?t=20170807">
+	<link rel="stylesheet" type="text/css" href="/assets/wiki2.1/css/markdownbody.css?t=20170807">
+	<style type="text/css">
+		#footer{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+<ol class="breadcrumb">
+	<li class="head-catalog-list">
+		<a href="https://www.jikexueyuan.com/">首页</a>
+	</li>
+    <li class="head-catalog-list">
+        <a href="http://wiki.jikexueyuan.com">Wiki</a>
+    </li>
+    <li class="head-catalog-list">
+        <a href="http://wiki.jikexueyuan.com/list/front-end">前端开发</a>
+    </li>
+    <li class="head-catalog-list">
+        <a href="http://wiki.jikexueyuan.com/list/html">HTML &amp; CSS</a>
+    </li>
+    <li class="head-catalog-list">
+        <a href="http://wiki.jikexueyuan.com/project/fedHandlebook" class="active">前端开发者手册</a>
+    </li>
+</ol>
+
+<div class="detail-wrapper w-1200  clearfix">
+	<div class="detail-left">
+
+		<!-- 目录 -->
+		<ul class="detail-nav">
+			<li class="detail-navlist navlist-one ">
+				<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/" >关于</a></div>
+			</li>
+			<li class="detail-navlist navlist-one ">
+			<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/README.html" >前端开发者手册</a>
+							</div>
+					</li>
+			<li class="detail-navlist navlist-one ">
+			<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/what-is-a-fd.html" >什么是前端开发者？</a>
+							</div>
+					</li>
+			<li class="detail-navlist navlist-one ">
+			<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice.html" >第一部分: 前端开发实践</a>
+				<div class="navlist-more more-one nav-down "></div> 			</div>
+							<ul class="navul-one ">
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/front-end-jobs-titles.html" >前端的工作职称</a>
+															</div>
+													</li>
+											<li class="detail-navlist  navlist-active ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/tech-employed-by-fd.html" >常用的网络技术</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/front-end-skills.html" >前端开发技术栈</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/fd-dev-for.html" >前端开发做什么</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/front-end-team-role.html" >团队中的前端</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/full-stack.html" >全才神话</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/front-end-interview.html" >前端的面试问题</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/front-end-jobs.html" >前端工作版块</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/salaries.html" >前端薪资</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/practice/making-fd.html" >如何成为前端开发者?</a>
+															</div>
+													</li>
+									</ul>
+					</li>
+			<li class="detail-navlist navlist-one ">
+			<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning.html" >第二部分: 前端开发学习</a>
+				<div class="navlist-more more-one nav-down "></div> 			</div>
+							<ul class="navul-one ">
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/self-direct-learning.html" >自主学习</a>
+																	<div class="navlist-more more-two nav-down "></div>
+															</div>
+															<ul class="navul-two ">
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/internet.html" >Internet/Web</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/browsers.html" >Web浏览器</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/dns.html" >DNS</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/networks.html" >HTTP/网络</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/web-hosting.html" >Web 主机</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/general-front-end.html" >前端开发综合学习</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/design.html" >用户界面和交互设计</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/html-css.html" >HTML &amp; CSS</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/seo.html" >SEO</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/js.html" >JavaScript</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/animation.html" >Web 动画</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/dom.html" >DOM, BOM &amp; JQuery</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/fonts.html" >Web 字体</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/accessibility.html" >无障碍设计</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/api.html" >Web/浏览器 API</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/json.html" >JSON</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/static.html" >静态网页生成器</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/front-end-apps.html" >前端应用架构设计</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/interface.html" >接口/API 设计</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/dev-tools.html" >Web 开发者工具</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/cli.html" >命令行</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/node.html" >Node.js</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/react.html" >React.js</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/module.html" >模块加载器</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/package.html" >包管理器</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/version.html" >版本控制</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/build.html" >构建 &amp; 任务自动化</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/optimizing.html" >网站性能优化</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/test.html" >JS 测试</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/headless-browsers.html" >无壳浏览器</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/offline.html" >离线开发</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/security.html" >安全</a>
+											</div>
+										</li>
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/multi-things-dev.html" >多平台开发</a>
+											</div>
+										</li>
+																	</ul>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/direct-learning.html" >指导学习</a>
+																	<div class="navlist-more more-two nav-down "></div>
+															</div>
+															<ul class="navul-two ">
+																			<li class="">
+											<div class="detail-navlist-title">
+												<a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/courses.html" >前端指导学习</a>
+											</div>
+										</li>
+																	</ul>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/learn-from.html" >前端开发者从哪里学</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/learning/news-podcasts.html" >前端简报, 资讯 &amp; 博客</a>
+															</div>
+													</li>
+									</ul>
+					</li>
+			<li class="detail-navlist navlist-one ">
+			<div class="detail-navlist-title"><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools.html" >第三部分: 前端开发工具</a>
+				<div class="navlist-more more-one nav-down "></div> 			</div>
+							<ul class="navul-one ">
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/general-tools.html" >常用前端开发工具</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/browserdocs.html" >DOC/API 浏览</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/seo.html" >SEO</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/proto.html" >原型和框架</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/diagram.html" >图表</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/http.html" >HTTP/网络</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/code-editor.html" >代码编辑</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/browser.html" >浏览器</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/html.html" >HTML</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/css.html" >CSS</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/dom.html" >DOM</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/js.html" >JavaScript</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/static.html" >静态网页生成器</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/app.html" >APP(桌面, 移动, 平板等) 管理</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/scaffolding.html" >脚手架</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/templates.html" >模板</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/ui.html" >UI 部件 &amp; 组件</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/charts.html" >数据可视化</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/graphics.html" >图形</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/animation.html" >动画</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/json.html" >JSON</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/test.html" >测试框架</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/data.html" >数据存储</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/loader.html" >模块/包加载</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/repo.html" >模块/包仓库</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/hosting.html" >Web/云/静态主机托管</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/project.html" >项目管理 &amp; 代码托管</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/coll.html" >合作 &amp; 交流</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/cms.html" >CMS 托管/API</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/bass.html" >BASS</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/offline.html" >离线</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/security.html" >安全</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/task.html" >任务管理</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/deploy.html" >部署</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/monitor.html" >网站/APP 监控</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/error.html" >JS 错误监控</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/perf.html" >性能</a>
+															</div>
+													</li>
+											<li class="detail-navlist ">
+							<div class="detail-navlist-title title-two "><a href="http://wiki.jikexueyuan.com/project/fedHandlebook/tools/svg.html" >SVG</a>
+															</div>
+													</li>
+									</ul>
+					</li>
+			</ul>
+		<!-- ／目录 -->
+		<!-- ad -->
+		<ul>
+            		</ul>
+		<!-- ／ad -->
+	</div>
+
+	<!-- 暂时隐藏 -->
+	<aside class="detail-right" style="display: none">
+
+		<!-- /author -->
+					<div class="mg-t10 ad" id="banner03-1"></div>
+<div class="mg-t10 ad" id="banner03-2"></div>
+
+<script type="text/javascript" src="//dup.baidustatic.com/js/os.js"></script>
+<script type="text/javascript">
+    BAIDU_CLB_fillSlotAsync('1176465', 'banner03-1');
+    BAIDU_CLB_fillSlotAsync('1176466', 'banner03-2');
+</script>				<!-- download -->
+		<h2 class="right-h2">离线下载</h2>
+		<div class="right-download">
+							<a href=" //passport.jikexueyuan.com/sso/login " target="_blank" class="download-pdf blue-btn">PDF版</a>
+				<a href=" //passport.jikexueyuan.com/sso/login " target="_blank" class="download-epub blue-btn">ePub版</a>
+			
+		</div>
+		<!-- /download -->
+
+
+		<!-- resource -->
+		<h2 class="right-h2">相关资源</h2>
+		<ul class="right-resource">
+					</ul>
+		<!-- /resource -->
+
+	</aside>
+
+	<div class="detail-main">
+		<!-- download -->
+		<div class="offline-download">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="2">离线下载</th>
+					</tr>
+				</thead>
+				<tbody>
+										<tr>
+						<td><a href=" //passport.jikexueyuan.com/sso/login " target="_blank">PDF版</a></td>
+						<td><a href=" //passport.jikexueyuan.com/sso/login " target="_blank">ePub版</a></td>
+					</tr>
+									</tbody>
+
+			</table>
+		</div>
+		<!-- /download -->
+
+		<div class="markdown-body">
+			<!-- 欢迎成为极客学院WIKI作者 -->
+						<!-- 授权极客学院转载 -->
+				<p class="author"><a href="http://weibo.com/rebgin?is_hot=1" class="reprint-name right-top-img" data-name="点击授权商" target="_blank">会飞的Pikachu</a> · 更新于 2019-07-09 16:14:37</p>
+						<!-- 内容 -->
+			<h3>前端开发者常用的网络技术</h3>
+<p><img src="https://raw.githubusercontent.com/dwqs/fedHandlebook/master/images/web-tech-employed.jpg" alt="web-tech-employed" /></p>
+<p>前端开发者常用的网络技术如下:</p>
+<ul>
+<li>Hyper Text Markup Language(超文本标记语言, 又称 HTML)</li>
+<li>Cascading Style Sheets (层叠式样式表, 又称 CSS)</li>
+<li>Document Object Model (文档对象模型, 又称 DOM)</li>
+<li>JavaScript Programming Language (JavaScript编程语言, 又称: ECMAScript 6, ES6, JavaScript 2015)</li>
+<li>Web API's (Web应用程序接口, 又称 HTML5 API 或浏览器 API)</li>
+<li>Hypertext Transfer Protocol (超文本传输协议, 又称 HTTP)</li>
+<li>Uniform Resource Locator's (统一资源定位符, 又称 URL)</li>
+<li>JavaScript Object Notation (JavaScript对象表示, 又称 JSON)</li>
+<li>Web Content Accessibility Guidelines (网页内容无障碍设计指南, 又称 WCAG) &amp; Accessible Rich Internet Applications (富Internet应用程序的无障碍设计, 又称 ARIA)</li>
+</ul>
+<p>根据相关的文档和规范, 这些技术定义如下. 作为一个比较, 你可以在 <a rel="nofollow" href="https://platform.html5.org/"">platform.html5.org</a> 上看到所有与Web相关的规范.</p>
+<p><strong>Hyper Text Markup Language(超文本标记语言, 又称 HTML)</strong></p>
+<blockquote>
+<p>超文本标记语言, 通常被称为 HTML, 是被用于创建网页的标准标记语言. Web浏览器能将 HTML 文件渲染成可见的或者可听到的. HTML 随着线索提示, 语义化地描述了网站的结构, 使它成为一种标记语言, 而不是编程语言. - wikipedia.org</p>
+</blockquote>
+<p>更多相关的文档/规范:</p>
+<ul>
+<li><a rel="nofollow" href="http://www.w3.org/TR/html5/"">W3C HTML5 规范</a> : HTML5 是WWW核心语言的主要修订</li>
+<li><a rel="nofollow" href="https://html.spec.whatwg.org/multipage/semantics.html#semantics"">HTML 元素在线标准</a></li>
+<li><a rel="nofollow" href="https://html.spec.whatwg.org/multipage/syntax.html#syntax"">HTML 在线语法</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/standards/techs/html#w3c_all"">所有 W3C HTML 规范</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"">HTML 元素参考</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes"">HTML 属性参考</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes"">全局属性</a></li>
+</ul>
+<p><strong>Cascading Style Sheets (层叠式样式表, 又称 CSS)</strong></p>
+<blockquote>
+<p>层叠式样式表(CSS)是用于描述外观和格式化标记语言编写的文档的样式表语言. 尽管经常被用来改变用 HTML 和 XHTML 编写的网页和用户界面的样式, 但也可用于任何 XML 文档, 包括纯 XML, SVG 和 XUL. 跟 JavaScript 和 HTML 一样, CSS是被大多数网站用于为Web应用程序创建富有吸引力的网页, 用户界面的一种基础技术, 也为许多移动应用程序创建用户界面. - wikipedia.org</p>
+</blockquote>
+<p>更多相关的文档/规范:</p>
+<ul>
+<li><a rel="nofollow" href="https://drafts.csswg.org/css2/"">CSS 2.2规范</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/TR/css3-selectors/"">CSS 3选择器</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/Style/CSS/current-work#roadmap"">所有 W3C CSS 规范</a></li>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"">CSS 参考</a></li>
+</ul>
+<p><strong>Document Object Model (文档对象模型, 又称 DOM)</strong></p>
+<blockquote>
+<p>文档对象模型用于代表和对象交互的HTML, XHTML 和 XML 文档, 是一种跨平台和语言无关性的约定. 每一份文档的所有节点被组织成一种树结构, 称为 DOM 树. DOM 对象通过使用对象上的方法被处理和操作, 一个 DOM 对象的公共接口被指定为它的应用程序编程接口(API). - wikipedia.org</p>
+</blockquote>
+<p>更多相关的文档/规范:</p>
+<ul>
+<li><a rel="nofollow" href="http://www.w3.org/TR/2014/WD-dom-20140204/"">W3C DOM4</a></li>
+<li><a rel="nofollow" href="https://dom.spec.whatwg.org/"">DOM 在线标准</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105/"">DOM 3 事件规范</a></li>
+</ul>
+<p><strong>JavaScript Programming Language (JavaScript编程语言, 又称: ECMAScript 6, ES6, JavaScript 2015)</strong></p>
+<blockquote>
+<p>JavaScript 是一种高级的, 动态的, 无类型的和解释型的编程语言, 它已经在 ECMAScript 语言规范中被标准化. 跟 HTML 和 CSS 一样, JavaScript 是 WWW 内容生成的第三种必不可少的技术; 大多数的网会使用Javascript, 并且 Javascript 被所有现在Web浏览器支持. JavaScript 基于原型和函数优先的特点, 使它成为多范型的语言, 支持面向对象的, 命令式的, 和函数式编程风格. JavaScript 能提供 API 来处理文本, 数组, 日期和正则表达式, 但不包括任何 I/O, 如网络, 存储或图形工具, 对这些的依赖取决于宿主环境中嵌入了什么. - wikipedia.org</p>
+</blockquote>
+<p>更多相关的文档/规范:</p>
+<ul>
+<li><a rel="nofollow" href="http://www.ecma-international.org/ecma-262/6.0/"">ECMAScript 2015 语言规范</a></li>
+</ul>
+<p><strong>Web API's (Web应用程序接口, 又称 HTML5 API)</strong></p>
+<blockquote>
+<p>当使用 JavaScript 为Web程序写代码时, 有很多不错的 API 是可以利用的. 下面列举了所有在Web APP 或网站开发中可能会用到的接口. - Mozilla</p>
+</blockquote>
+<p>更多相关文档:</p>
+<ul>
+<li><a rel="nofollow" href="https://developer.mozilla.org/en-US/docs/Web/API"">Web API 接口</a></li>
+</ul>
+<p><strong>Hypertext Transfer Protocol (超文本传输协议, 又称 HTTP)</strong></p>
+<blockquote>
+<p>超文本传输协议是一个用于分布式, 协作和超媒体信息系统的应用协议, 是 WWW 数据通信的基础. - wikipedia.org</p>
+</blockquote>
+<p>更多相关规范:</p>
+<ul>
+<li><a rel="nofollow" href="https://tools.ietf.org/html/rfc2616"">Hypertext Transfer Protocol -- HTTP/1.1</a></li>
+<li><a rel="nofollow" href="https://tools.ietf.org/html/draft-ietf-httpbis-http2-16"">Hypertext Transfer Protocol version 2 draft-ietf-httpbis-http2-16</a></li>
+</ul>
+<p><strong>Uniform Resource Locator's (统一资源定位符, 又称 URL)</strong></p>
+<blockquote>
+<p>一个 URL (也称Web地址)是一个资源引用, 指定了资源在计算机网络和检索机制中的位置. 与之类似的概念是 Uniform Resource Identifier(URI), 尽管许多人认为两个术语可以互换使用, 但 URL 是统一资源标识符( URI )[3] 的具体类型. 一个 URL 意味着一种访问资源量的方式, 但这并不适用于 URI.
+[4][5]URL 不仅常用于引用一个网页(http), 也可用于文件传输(ftp), 邮件(mailto), 数据库访问(JDBC) 和许多其它应用. - wikipedia.org</p>
+</blockquote>
+<p>更多相关规范:</p>
+<ul>
+<li><a rel="nofollow" href="http://www.w3.org/Addressing/URL/url-spec.txt"">URL</a></li>
+<li><a rel="nofollow" href="https://url.spec.whatwg.org/"">URL 在线标准</a></li>
+</ul>
+<p><strong>JavaScript Object Notation (JavaScript对象表示, 又称 JSON)</strong></p>
+<blockquote>
+<p>JSON, 有时也称 JavaScript 对象表示, 是一种使用人类可读的文本传输由键值对组成的数据对象的开放格式. 对于异步浏览器/服务器通信(AJAJ), JSON 是主要的数据格式, 很大程度上代替了 XML(AJAX). 尽管最初是从 JavaScript 脚本语言衍生而来, 但是 JSON 是语言无关性的数据格式, 在许多编程语言中, 代码解析和生成 JSON 是很容易的. JSON 的格式最初是由 Douglas Crockford 指定的, 但目前却被描述成两种标准: RFC 7159 和 ECMA-404. ECMA 标准只允许被合法的语法语句描述, 而 RFC 则提供了一些语义化描述和安全考虑. JSON 的官方网络媒体类型 application / JSON, 扩展名是 .json. - wikipedia.org</p>
+</blockquote>
+<p>更多相关规范:</p>
+<ul>
+<li><a rel="nofollow" href="http://json.org/"">JSON 介绍</a></li>
+<li><a rel="nofollow" href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf"">JSON 数据交换格式</a></li>
+<li><a rel="nofollow" href="http://jsonapi.org/"">JSON API</a></li>
+</ul>
+<p><strong>Web Content Accessibility Guidelines (网页内容无障碍设计指南, 又称 WCAG) &amp; Accessible Rich Internet Applications (富Internet应用程序的无障碍设计, 又称 ARIA)</strong></p>
+<blockquote>
+<p>无障碍设计是指产品, 设备, 服务, 或者环境是为残疾人设计的. 无障碍设计的概念意味着与一个人的辅助技术(例如, 电脑屏幕阅读器)相兼容, 确保直接访问(即独立)和&quot;间接访问&quot;. - wikipedia.org</p>
+</blockquote>
+<ul>
+<li><a rel="nofollow" href="http://www.w3.org/WAI/"">无障碍设计网络倡议 (WAI)</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/standards/techs/wcag#w3c_all"">网页内容无障碍设计指南 (WCAG) 的目前状态</a></li>
+<li><a rel="nofollow" href="http://www.w3.org/standards/techs/aria#w3c_all"">富 Internet 应用程序的无障碍设计 (WAI-ARIA) 的目前状态</a></li>
+</ul>
+<p><strong>译者补充:</strong></p>
+<ul>
+<li><a rel="nofollow" href="https://github.com/lyfeyaj/awesome-resources#web-%E5%89%8D%E7%AB%AF"">Web 端开发常用资源</a></li>
+<li><a rel="nofollow" href="http://hao.jobbole.com/?catid=67"">Web 前端开发资源</a></li>
+</ul>
+		</div>
+
+		
+		<div class="previous-and-next">
+							<span class="pull-left">上一篇: <a id="previous_link" href="/project/fedHandlebook/practice/front-end-jobs-titles.html" data-toggle="tooltip" data-placement="top" title="上翻页快捷键：左方向键">前端的工作职称</a></span>
+			
+							<span class="pull-right">下一篇: <a id="next_link" href="/project/fedHandlebook/practice/front-end-skills.html" data-toggle="tooltip" data-placement="top" title="下翻页快捷键：右方向键">前端开发技术栈</a></span>
+					</div>
+
+		<div class="detail-share clearfix">
+			<div class="bdsharebuttonbox share-item">
+				<a href="#" class="bds_more" data-cmd="more"></a>
+				<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+			</div>
+			<script>
+				window._bd_share_config = {
+					"common": {
+						"bdSnsKey": {},
+						"bdText": "",
+						"bdMini": "2",
+						"bdMiniList": false,
+						"bdPic": "",
+						"bdStyle": "0",
+						"bdSize": "16"
+					},
+					"share": {},
+					"image": {
+						"viewList": ["weixin", "tsina", "qzone", "youdao"],
+						"viewText": "分享到：",
+						"viewSize": "16"
+					}
+				};
+				with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script>
+		</div>
+
+		<!--广告-->
+				<!--/广告-->
+
+		<!-- 评论 -->
+		<div id="jkcomments"></div>
+
+		<!-- 新 footer -->
+		<div class="wiki-footer">
+			<ul>
+				<li><a href="//help.jikexueyuan.com/" target="_blank">关于我们</a></li>
+				<li><a href="//help.jikexueyuan.com/join.html" target="_blank">加入我们</a></li>
+				<li><a href="//help.jikexueyuan.com/contact.html" target="_blank">联系我们</a></li>
+				<li><a href="//j.jikexueyuan.com/evangelist/apply" target="_blank">讲师合作</a></li>
+				<li><a href="//help.jikexueyuan.com/" target="_blank">帮助中心</a></li>
+				<li><a href="//blog.jikexueyuan.com/" target="_blank">黑板报</a</li>
+				<li><a href="//www.jikexueyuan.com/friendlink.html" target="_blank">友情链接</a></li>
+				<li><a href="javascript:void(0)" onclick="meiqia()" target="_blank">意见反馈</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" src="//e.jikexueyuan.com/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/wiki2.1/js/detail.js"></script>
+<script type="text/javascript" src="/assets/wiki2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//e.jikexueyuan.com/static/js/login_register.min.js?t=1490582791000"></script>
+
+
+	<script>
+		var JKcomments = {
+			perPage: 15,
+			model: "wiki", //模块名称（必填）
+			parent_id: "fedHandlebook",
+			item_id: "25b3e11cb8f57eb289aa9da55640eb96" //被评论信息ID（必填）
+		}
+	</script>
+
+	<script type="text/javascript" src="//sw1.jikexueyuan.com/home/src/jquery.qqFace.js?_t=2017302"></script>
+	<script type="text/javascript" src="//sw1.jikexueyuan.com/home/js/comments.min.js?_t=2017302"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    var _Sjkxy     = _Sjkxy || [];
+    _Sjkxy['params']    = {wikiP:'前端开发者手册' , posId:117001, po:69001 , wPId : '576'};
+</script>
+
+
+
+
+<script type="text/javascript" src='//e.jikexueyuan.com/static/js/growingio.js'></script>
+<!-- 增加latex 数学公式-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+</body>
+
+</html>

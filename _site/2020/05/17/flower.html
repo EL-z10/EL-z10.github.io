@@ -1,0 +1,387 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="" />
+<meta name="keywords" content="ctf, reverse" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>花指令（一）</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(	153,50,204) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(	153,50,204);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">EL BLOG</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">花指令（一）</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(	153,50,204);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2020/06/28/ke2.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(	153,50,204)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(	153,50,204);"><sapn class="main">壳及脱壳的一些基本办法（二）</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">花指令（一）</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/05/14/ke1.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(	153,50,204)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(	153,50,204);"><sapn class="main">壳及脱壳的一些基本办法（一）</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2020/06/28/ke2.html" class="leftchange" style="border-right: 1px solid rgb(	153,50,204);border-bottom: 2px solid rgb(	153,50,204);"><span>上一篇<br><br>壳及脱壳的一些基本办法（二）</span></a>
+    
+    
+      <a href="/2020/05/14/ke1.html" class="rightchange" style="border-left: 1px solid rgb(	153,50,204);border-bottom: 2px solid rgb(	153,50,204);"><span>下一篇<br><br>壳及脱壳的一些基本办法（一）</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="花指令">花指令</h1>
+
+<h2 id="原理">原理</h2>
+
+<p>目的是反反汇编（保护技术的一种）</p>
+
+<p>在程序中插入若干代码，因为反汇编工具利用的线性扫描算法没有办法正确地将代码和数据分开，导致反汇编错误。</p>
+
+<h2 id="准备知识">准备知识</h2>
+
+<h3 id="机器码">机器码</h3>
+
+<p>0xE8 CALL 后面的四个字节是地址
+0xE9 JMP 后面的四个字节是偏移
+0xEB JMP 后面的二个字节是偏移
+0xFF15 CALL 后面的四个字节是存放地址的地址
+0xFF25 JMP 后面的四个字节是存放地址的地址</p>
+
+<p>0x68 PUSH 后面的四个字节入栈
+0x6A PUSH 后面的一个字节入栈</p>
+
+<h3 id="__asm关键字">__asm关键字</h3>
+
+<h5 id="简介">简介</h5>
+
+<p>__asm 关键字用于调用内联汇编程序，并且可在 C 或 C++ 语句合法时出现。</p>
+
+<p>_asm是 __ASM 的同义词。</p>
+
+<h5 id="语法">语法</h5>
+
+<p>__asm后跟一个程序集指令、一组括在大括号中的指令或者至少一对空大括号。</p>
+
+<p>1、__asm与大括号一起使用，则该关键字表示大括号之间的每一行都是一条汇编语言语句。</p>
+
+<p>如：</p>
+
+<p>_asm　{　mov al, 2 　mov dx, 0xD007　out al, dx　}</p>
+
+<p>2、asm不与大括号一起使用，放在代码行首部，则 asm 关键字表示此行的其余部分是一条汇编语言语句。</p>
+
+<p>如：</p>
+
+<p>__asm mov al, 2</p>
+
+<p>__asm mov dx, 0xD007</p>
+
+<p>__asm out al, dx</p>
+
+<p>3、__asm做语句分隔符，可将汇编语句放在同一行代码中。</p>
+
+<p>如：</p>
+
+<p>__asm mov al, 2 __asm mov dx, 0xD007 __asm out al, dx</p>
+
+<h2 id="分类">分类</h2>
+
+<h3 id="jz-jnzjmp">jz jnz/jmp</h3>
+
+<p><img src="https://i.loli.net/2020/06/16/ZLF2XBCcIl8gwzT.png" alt="image-20200616235852756" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__asm { 
+    _emit 075h    #jmp $+4
+    _emit 2h
+    _emit 0E9h
+    _emit 0EDh
+}
+</code></pre></div></div>
+
+<p>9是jmp指令对应的机器码，当反汇编器读取到E9时，接着会往下读取四个字节的数据作为跳转地址的偏移，所以才会看到错误的汇编代码。</p>
+
+<h3 id="call-ret">call ret</h3>
+
+<p>call+pop/add esp/add [esp] + retn</p>
+
+<p>call指令可以理解为jmp + push ip
+因此如果通过add esp,4来降低栈顶即可去除push ip的影响，从而使call等价于jmp
+但IDA会认为这是函数的分界，从而导致函数的范围识别错误</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20190320000856171.png" alt="call+add esp" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream.h&gt;
+#include &lt;windows.h&gt;
+void main()
+{
+    DWORD p;
+    _asm
+    {
+        call l1
+l1:
+        pop eax
+        mov p,eax//确定当前程序段的位置
+        call f1
+        _EMIT 0xEA//花指令，此处永远不会执行到
+        jmp l2//call结束以后执行到这里
+f1://这里用F8OD会终止调试，F7跟进的话就正常,why?
+        pop ebx
+        inc ebx
+        push ebx
+        mov eax,0x11111111
+        ret
+l2:
+        call f2//用ret指令实现跳转
+        mov ebx,0x33333333//这里永远不会执行到
+        jmp e//这里永远不会执行到
+f2:
+        mov ebx,0x11111111
+        pop ebx//弹出压栈的地址
+        mov ebx,offset e//要跳转到的地址
+        push ebx//压入要跳转到的地址
+        ret//跳转
+e:
+        mov ebx,0x22222222
+    }
+    cout&lt;&lt;hex&lt;&lt;p&lt;&lt;endl;
+}
+</code></pre></div></div>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>welcome to my blog ©
+  
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

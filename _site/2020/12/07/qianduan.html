@@ -1,0 +1,647 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="" />
+<meta name="keywords" content="ctf, reverse" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>前端的初步学习</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(191 239 255) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(191 239 255);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">EL BLOG</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">前端的初步学习</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(191 239 255);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="javascript:;" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(191 239 255)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(191 239 255);"><sapn class="main">没有上一页咯</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">前端的初步学习</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2020/06/28/ke2.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(191 239 255)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(191 239 255);"><sapn class="main">壳及脱壳的一些基本办法（二）</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="javascript:;" class="leftchange" style="border-right: 1px solid rgb(191 239 255);border-bottom: 2px solid rgb(191 239 255);"><span><br>没有上一篇咯</span></a>
+    
+    
+      <a href="/2020/06/28/ke2.html" class="rightchange" style="border-left: 1px solid rgb(191 239 255);border-bottom: 2px solid rgb(191 239 255);"><span>下一篇<br><br>壳及脱壳的一些基本办法（二）</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(191 239 255); border-right: 8px solid rgb(191 239 255)">
+        为了爬虫速成基础知识的笔记
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h1 id="前端基础知识">前端基础知识</h1>
+
+<h2 id="html">html</h2>
+
+<h3 id="html-元素">HTML 元素</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">开始标签</th>
+      <th style="text-align: left">元素内容</th>
+      <th style="text-align: left">结束标签</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">&lt;p&gt;</td>
+      <td style="text-align: left">这是一个段落</td>
+      <td style="text-align: left">&lt;/p&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="default.htm"></a></td>
+      <td style="text-align: left">这是一个链接</td>
+      <td style="text-align: left">&lt;/a&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><br /></td>
+      <td style="text-align: left">换行</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>如<code class="highlighter-rouge">&lt;br&gt;</code>是空元素</p>
+
+<h3 id="html-链接语法">HTML 链接语法</h3>
+
+<p><code class="highlighter-rouge">&lt;a href="url"&gt;链接文本&lt;/a&gt;</code></p>
+
+<p>href 属性描述了链接的目标。.</p>
+
+<h3 id="html-属性">HTML 属性</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">属性</th>
+      <th style="text-align: left">描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">class</td>
+      <td style="text-align: left">为html元素定义一个或多个类名（classname）(类名从样式文件引入)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">定义元素的唯一id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">style</td>
+      <td style="text-align: left">规定元素的行内样式（inline style）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">title</td>
+      <td style="text-align: left">描述了元素的额外信息 (作为工具条使用)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="html插入css">html插入CSS</h3>
+
+<p>CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</p>
+
+<p>CSS 可以通过以下方式添加到HTML中:</p>
+
+<ul>
+  <li>内联样式- 在HTML元素中使用”style” <strong>属性</strong></li>
+  <li>内部样式表 -在HTML文档头部 &lt;head&gt; 区域使用<style> **元素** 来包含CSS</style></li>
+  <li>外部引用 - 使用外部 CSS <strong>文件</strong></li>
+</ul>
+
+<p>最好的方式是通过外部引用CSS文件.</p>
+
+<p>css样例：一个按钮</p>
+
+<p>https://codepen.io/FelipeMarcos/pen/tfhEg</p>
+
+<p>内部（一般用于单个特别）</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+<span class="nt">body</span> <span class="p">{</span><span class="nl">background-color</span><span class="p">:</span><span class="no">yellow</span><span class="p">;}</span>
+<span class="nt">p</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+
+<p>或</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.title</span><span class="dl">'</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span> <span class="c1">//添加样式，固定住Tab</span>
+                    <span class="dl">'</span><span class="s1">top</span><span class="dl">'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="dl">'</span><span class="s1">width</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">100%</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="dl">'</span><span class="s1">z-index</span><span class="dl">'</span><span class="p">:</span> <span class="mi">999</span><span class="p">,</span>
+                    <span class="dl">'</span><span class="s1">position</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">fixed</span><span class="dl">'</span>
+                <span class="p">});</span>
+</code></pre></div></div>
+
+<p>(利用js插入。<script>...js代码...<script>)</script></script></p>
+
+<p>此处用了jquery</p>
+
+<h2 id="js">js</h2>
+
+<p>语法等略 此处记录下dom的学习</p>
+
+<h3 id="dom">dom</h3>
+
+<p>寻找元素:</p>
+
+<p><u>**通过ID寻找**</u>：<code class="highlighter-rouge">var a=document.getElementById("xiaoming")</code></p>
+
+<p>同样的 有getElenmentByTag和GetElementByClass</p>
+
+<p><strong><u>向指定元素添加事件句柄</u></strong>:<code class="highlighter-rouge">addEventListener()</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">myBtn</span><span class="dl">"</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nx">displayDate</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">displayDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">demo</span><span class="dl">"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>removeEventListener() 方法移除由 addEventListener() 方法添加的事件句柄</p>
+
+<p>参考手册：runoob.com/jsref/dom-obj-event.html</p>
+
+<h3 id="jquery">jquery</h3>
+
+<p>是js的一个库。用更少的代码做更多的事情。</p>
+
+<p>下面是个用jquery调CSS的例子</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">h1,h2,p</span><span class="dl">"</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">important</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+<span class="nc">.important</span>
+<span class="p">{</span>
+	<span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
+	<span class="nl">font-size</span><span class="p">:</span><span class="nb">xx-large</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.blue</span>
+<span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>标题 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>标题 2<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p&gt;</span>这是一个段落。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>这是另外一个段落。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div&gt;</span>这是一些重要的文本!<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;br&gt;</span>
+<span class="nt">&lt;button&gt;</span>为元素添加 class<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="xml">Xml</h2>
+
+<p>XML 不是 HTML 的替代。</p>
+
+<p>XML 和 HTML 为不同的目的而设计：</p>
+
+<ul>
+  <li>XML 被设计用来传输和存储数据，其焦点是数据的内容。</li>
+  <li>HTML 被设计用来显示数据，其焦点是数据的外观。</li>
+</ul>
+
+<p>HTML 旨在显示信息，而 XML 旨在传输信息。</p>
+
+<p>XML是一种树结构</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bookstore&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">category=</span><span class="s">"COOKING"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>Everyday Italian<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Giada De Laurentiis<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;year&gt;</span>2005<span class="nt">&lt;/year&gt;</span>
+        <span class="nt">&lt;price&gt;</span>30.00<span class="nt">&lt;/price&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">category=</span><span class="s">"CHILDREN"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>Harry Potter<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;author&gt;</span>J K. Rowling<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;year&gt;</span>2005<span class="nt">&lt;/year&gt;</span>
+        <span class="nt">&lt;price&gt;</span>29.99<span class="nt">&lt;/price&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">category=</span><span class="s">"WEB"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>Learning XML<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Erik T. Ray<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;year&gt;</span>2003<span class="nt">&lt;/year&gt;</span>
+        <span class="nt">&lt;price&gt;</span>39.95<span class="nt">&lt;/price&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+<span class="nt">&lt;/bookstore&gt;</span>
+</code></pre></div></div>
+
+<p>实例中的根元素是 <bookstore>。文档中的所有 <book> 元素都被包含在 <bookstore> 中。</bookstore></book></bookstore></p>
+
+<book> 元素有 4 个子元素：<title>、<author>、<year>、<price>
+
+语法详见https://www.runoob.com/xml/xml-syntax.html
+
+## Xpath
+
+Xpath在爬数据过程中很重要。
+
+### xpath简介
+
+&gt; 1. xpath 用于在XML文档中通过元素和属性进行导航
+&gt; 2. xpath 使用路径表达式来选取 XML 或 HTML 中的节点或者节点集。
+
+### xpath 节点
+
+&gt; 1. 在 xpath 中 有七种类型的节点：
+&gt;
+&gt; &gt; - 元素
+&gt; &gt; - 属性
+&gt; &gt; - 文本
+&gt; &gt; - 命名空间
+&gt; &gt; - 处理指令
+&gt; &gt; - 注释
+&gt; &gt; - 文档根节点
+&gt;
+&gt; 1. 节点关系
+&gt;
+&gt; &gt; - 父级
+&gt; &gt; - 子级
+&gt; &gt; - 同辈级
+&gt; &gt; - 先辈级
+&gt; &gt; - 后代级
+
+### xpath 语法
+
+| 表达式       | 描述                                                     | 语法示例                                                     |
+| ------------ | -------------------------------------------------------- | ------------------------------------------------------------ |
+| nodename     | 选取此节点的所有子节点,用户选取标签名                    | book                                                         |
+| /            | 从根节点选取                                             | /book                                                        |
+| //           | 从匹配选择的当前节点选择文档中的节点，而不考虑他们的位置 | //price 选择任意位置的 price 标签                            |
+| .            | 选取当前节点                                             | --                                                           |
+| ..           | 选取当前节点的父节点                                     | --                                                           |
+| @            | 选取属性                                                 | //@lang  选择lang标签的所有属性                              |
+| [n]          | 选取属于某元素下的第n个子元素,索引从1开始                | /bookstore/book[2]                                           |
+| [last()]     | 选取属于某个元素的最后一个元素                           | /book[last()]  last() 当作函数理解                           |
+| [last()-1]   | 选取属于某个元素的最后一个元素                           | /book[last()-1]                                              |
+| [position()] | 做元素定位使用                                           | /book[position()&lt;3 选择最前面两个的book元素]                 |
+| [@lang]      | 选择有属性为lang的元素                                   | //book[@lang] 选择有lang属性的book标签                       |
+| [@class=""]  | 选择class属性为某个值的元素                              | //div[@class="item"] 选择类名为item的div标签                 |
+| *            | 匹配任何元素节点                                         | --                                                           |
+| @*           | 匹配任何属性节点                                         | --                                                           |
+| \|           | 表示"或"                                                 | //bookstore/book/title\|//bookstore/book/price 表示匹配文章中 bookstore 下 book 标签下的 title 或这 price 标签 |
+
+### 语法示例
+
+以下为python脚本
+
+```python
+from lxml import etree
+
+html = '''
+<bookstore> 
+  <book price="100" category="cooking"> 
+    <title lang="en">Everyday Italian</title>  
+    <author>Giada De Laurentiis</author>  
+    <year>2005</year>  
+    <price>30.00</price> 
+  </book>  
+
+  <book category="children"> 
+    <title lang="cn">Harry Potter</title>  
+    <author>J K. Rowling</author>  
+    <year>2005</year>  
+    <price>29.99</price> 
+  </book>  
+
+  <book category="web"> 
+    <title category="web">XQuery Kick Start</title>  
+    <author>James McGovern</author>  
+    <author>Per Bothner</author>  
+    <author>Kurt Cagle</author>  
+    <author>James Linn</author>  
+    <author>Vaidyanathan Nagarajan</author>  
+    <year>2003</year>  
+    <price>49.99</price> 
+  </book> 
+
+  <book category="web" cover="paperback" price="100"> 
+    <title>Learning XML</title>  
+    <author>Erik T. Ray</author>  
+    <year>2003</year>  
+    <price>39.95</price> 
+  </book> 
+
+</bookstore>
+
+'''
+# 将字符串转为html对象
+html = etree.HTML(html)
+
+
+# 获取bookstore下book标签的title标签
+res = html.xpath('//bookstore/book/title')
+print(res)
+# 返回值（列表中是对象）：[&lt;Element title at 0x25c54df7388&gt;, &lt;Element title at 0x25c54df73c8&gt;, &lt;Element title at 0x25c54df7448&gt;, &lt;Element title at 0x25c54df7488&gt;]
+
+# 获取bookstore下book标签的title标签中category属性值为“web”
+res = html.xpath('//bookstore/book/title[@category="web"]')
+print(res)
+# 返回值（列表中是对象）：[&lt;Element title at 0x1f0ec727388&gt;]
+
+# 获取bookstore下book标签的title标签中category属性值为“web”的标签的值
+res = html.xpath('//bookstore/book/title[@category="web"]/text()')
+print(res)
+# 返回值（列表中是字符串）：['XQuery Kick Start']
+
+# 获取bookstore下book的price属性为100的标签下的title()标签的值
+res = html.xpath('//bookstore/book[@price="100"]/title/text()')
+print(res)
+# 返回值（列表中的是字符串）：['Everyday Italian', 'Learning XML']
+
+# 获取bookstore 下book下第1个标签的所有属性 [1]:表示选择第几个标签 @*：表示选择所有的属性
+res = html.xpath('//bookstore/book[1]/@*')
+print(res)
+# 返回值（列表中是字符串）
+
+# 获取bookstore 下book带有任意属性的标签
+res = html.xpath('//bookstore/book[@*]')
+print(res)
+# 返回值 (列表中的是对象)：[&lt;Element book at 0x17a7fb47388&gt;, &lt;Element book at 0x17a7fb473c8&gt;, &lt;Element book at 0x17a7fb47448&gt;, &lt;Element book at 0x17a7fb47488&gt;]
+
+# 获取带有属性的title元素的值
+res = html.xpath('//title[@*]/text()')
+print(res)
+# 返回值（列表中的是字符串）：['Everyday Italian', 'Harry Potter', 'XQuery Kick Start']
+
+# 获取book下的 title 和 price 标签
+res = html.xpath('//book/title | //book/price')
+print(res)
+# 返回值：（列表中的是对象）：[&lt;Element title at 0x256dc8773c8&gt;, &lt;Element price at 0x256dc877448&gt;, &lt;Element title at 0x256dc877488&gt;, &lt;Element price at 0x256dc8774c8&gt;, &lt;Element title at 0x256dc877508&gt;, &lt;Element price at 0x256dc877548&gt;, &lt;Element title at 0x256dc877588&gt;, &lt;Element price at 0x256dc8775c8&gt;]
+
+# 获取book有category或price属性的值
+res = html.xpath('//book/@category | //book/@price')
+print(res)
+# 返回值 （列表中的是字符串）：['100', 'cooking', 'children', 'web', 'web', '100']
+```
+
+
+
+</price></year></author></title></book>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>welcome to my blog ©
+  
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
